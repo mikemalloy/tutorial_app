@@ -1,0 +1,13 @@
+<h1>All microposts</h1>
+
+<%= will_paginate %>
+
+<table class="front" summary="For signed in users">
+	<tr>
+		<td class="main">
+			<% @feed_items = @microposts %>
+			<%= render 'shared/feed' %>
+		</td>
+	</tr>
+</table>
+
