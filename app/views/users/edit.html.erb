@@ -1,11 +1,11 @@
 <h1>Edit user </h1>
 
-<%= form_for(@user) do |f| %>
-
+<%= simple_form_for(@user) do |f| %>
+	<%= render 'shared/error_messages', :object => f.object %>
 	<%= render 'fields', :f => f %>
 	
 	<div class = "actions">
-		<%= f.submit "Update" %>
+		<%= f.button :submit %>
 	</div>
 <% end %>
 
