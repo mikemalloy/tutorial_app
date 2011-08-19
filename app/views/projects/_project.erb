@@ -1,0 +1,7 @@
+<li>
+	<%= project.name %> | <%= project.description %>
+
+	| <%= link_to "delete", project, :method => :delete, :confirm => "You sure?",
+									:title => "Delete #{project.name}" %>
+</li>
+

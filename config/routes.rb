@@ -1,9 +1,19 @@
 TutorialApp::Application.routes.draw do
+  get "test_results/new"
+
+  get "test_results/index"
+
+  get "projects/new"
+
+  get "projects/index"
+
   get "sessions/new"
 
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
   resources :microposts, :only => [:create, :destroy]
+  resources :projects, :only => [:new, :create, :destroy, :index]
+  resources :test_results, :only => [:new, :create, :destroy, :index]
   resources :users do
     resources :microposts
   end

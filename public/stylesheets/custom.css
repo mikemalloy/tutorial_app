@@ -1,5 +1,5 @@
 .container {
-  width: 710px;
+  width: 1500px;
 }
 
 body {
@@ -199,6 +199,8 @@ h1.micropost {
 
 table.microposts {
   margin-top: 1em;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 table.microposts tr {
@@ -208,6 +210,14 @@ table.microposts tr {
 table.microposts tr td.gravatar {
   border-top: 1px solid #ccc;
   vertical-align: top;
+  width: 50px;
+}
+
+table.microposts td span.intvalue {
+  border-top: 1px solid #ccc;
+  vertical-align: top;
+  margin-left:auto;
+  margin-right:auto;
   width: 50px;
 }
 
@@ -250,7 +260,7 @@ form.new_micropost textarea {
 
 .simple_form label {
   float: left;
-  width: 100px;
+  width: 150px;
   text-align: right;
   margin: 2px 10px;
 }
@@ -289,3 +299,43 @@ form.new_micropost textarea {
   display: block;
   font-style: italic;
 }
+
+table.test_results {
+	font: 11px/24px Verdana, Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 1300px;
+	}
+
+table.test_results th {
+	border-top: 1px solid #FB7A31;
+	border-bottom: 1px solid #FB7A31;
+	border-left:2px solid black;
+	background: #FFC;
+	padding: 0 0.5em;
+	text-align: center;
+	}
+
+tr.yellow td {
+	border-top: 1px solid #FB7A31;
+	border-bottom: 1px solid #FB7A31;
+	background: black;
+	}
+
+table.test_results td {
+	border-bottom: 1px solid #CCC;
+	padding: 0 0.5em;
+	}
+
+table.test_results td:first-child {
+	width: 190px;
+	}
+
+table.test_results td+td {
+	border-left: 3px solid #CCC;
+	text-align: center;
+	}
+
+table.test_results td+td+td+td+td+td+td+td+td+td {
+	  text-align: left;
+	}
+

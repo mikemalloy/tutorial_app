@@ -1,0 +1,21 @@
+<h1>Enter Test Result</h1>
+
+<%= simple_form_for(@test_result) do |f| %>
+
+
+	<%= render 'shared/error_messages', :object => f.object %>
+	<%= f.input :date_run %>
+	<%= f.association :project %>
+	<%= f.input :server_rev %>
+	<%= f.input :client_rev %>
+	<%= f.input :number_tests %>
+	<%= f.input :number_passed %>
+	<%= f.input :number_failed %>
+	<%= f.input :actual_failed %>
+	<%= f.input :false_neg, :label => "False Negatives"%>
+	<%= f.input :comments %>
+	
+	<div class="actions">
+		<%= f.submit :New %>
+	</div>
+<% end %>

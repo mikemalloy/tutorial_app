@@ -1,0 +1,22 @@
+<h1>Test Results</h1>
+
+<table class="test_results">
+	<thead>
+	<tr class="yellow">
+		<th width="5%">Date Run</th>
+		<th>Project</th>
+		<th>Server Revision</th>
+		<th>Client Revision</th>
+		<th>Number Tests</th>
+		<th>Number Passed</th>
+		<th>Number Failed</th>
+		<th>Actual Failures</th>
+		<th>False Negatives</th>
+		<th width="33%">Comments</th>
+	</tr>
+	</thead>
+	<tbody>
+	<%= render @test_results %>
+	</tbody>
+</table>
+<%= will_paginate %>
