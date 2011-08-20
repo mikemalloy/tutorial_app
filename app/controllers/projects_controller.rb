@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(params[:project])
     if @project.save
-      flash[:success] = "Created new description: #{@project.description} , #{params[:project][:description]}"
+      flash[:success] = "Created new project: #{@project.name}"
       redirect_to(projects_path)
     else
       @title = "New Project"

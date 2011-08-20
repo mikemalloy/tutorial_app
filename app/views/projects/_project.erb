@@ -1,7 +1,7 @@
-<li>
-	<%= project.name %> | <%= project.description %>
+<tr>
+	<td><%= project.name %></td><td><%= project.description %></td>
 
-	| <%= link_to "delete", project, :method => :delete, :confirm => "You sure?",
-									:title => "Delete #{project.name}" %>
-</li>
+	<td><%= link_to "delete", project, :method => :delete, :confirm => "You sure?",
+									:title => "Delete #{project.name}" %></td>
+</tr>
 
