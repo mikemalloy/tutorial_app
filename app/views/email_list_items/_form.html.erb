@@ -1,0 +1,13 @@
+<%= simple_form_for(@email_list_item) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :name %>
+    <%= f.input :email %>
+    <%= f.input :email_list_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

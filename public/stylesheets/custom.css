@@ -1,6 +1,11 @@
 .container {
-  width: 1500px;
+  width: 850px;
 }
+
+.large_container {
+  width: 1050px;
+}
+
 
 body {
   background: #cff;
@@ -308,17 +313,39 @@ table.bvt_app_form_table {
 	background: white;
 	}
 	
+table.bvt_app_add_member_table {
+		font: 15px/24px Verdana, Arial, Helvetica, sans-serif;
+		border-collapse: collapse;
+		width: 600px;
+		background: white;
+}
+
+
+table.bvt_app_add_member_table td+td+td+td {
+	margin-left: 0%;
+	width: 10%;
+}
+
+	
 tr.bvt_app_white td {
 	background: white;
 	}
 
+
+table.bvt_app_small_table {
+	font: 11px/24px Verdana, Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 800px; 
+	}
+
+
 table.bvt_app_table {
 	font: 11px/24px Verdana, Arial, Helvetica, sans-serif;
 	border-collapse: collapse;
-	width: 1300px;
+	width: 1000px; 
 	}
 
-table.bvt_app_table th {
+table.bvt_app_small_table th, table.bvt_app_table th {
 	border-top: 1px solid #FB7A31;
 	border-bottom: 1px solid #FB7A31;
 	border-left:1px solid black;
@@ -331,14 +358,16 @@ tr.yellow td {
 	border-top: 1px solid #FB7A31;
 	border-bottom: 1px solid #FB7A31;
 	border-left:1px solid black;
+	border-right:1px solid black;
 	background: #FFC;
 	padding: 0 0.5em;
 	text-align: center;
 	}
 
-table.bvt_app_table td {
+table.bvt_app_small_table td, table.bvt_app_table td {
 	border-bottom: 1px solid #CCC;
 	border-left: 1px solid #CCC;
+	border-right: 1px solid #CCC;
 	padding: 0 0.5em;
 	}
 
@@ -355,3 +384,7 @@ table.bvt_app_table td+td+td+td+td+td+td+td+td+td {
 	  text-align: left;
 	}
 
+div.bvt_app_center
+{
+		margin-left: 20%;
+}

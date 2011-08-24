@@ -6,9 +6,11 @@ gem 'rails', '3.0.8'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3', '1.3.3'
+gem 'pg'
 gem 'gravatar_image_tag', '1.0.0.pre2'
 gem 'will_paginate', '3.0.pre2'
 gem 'simple_form'
+gem 'ruby-debug'
 
 group :development do
 	gem 'rspec-rails', '2.6.1'

@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+
+<div>
+<%= form_tag( add_email_email_list_path,  :method => :put) do %>
+<table class="bvt_app_add_member_table">
+	<tr>
+		<td>Add Member</td>
+		<td><%= text_field_tag "name" %></td>
+		<td><%= text_field_tag "email" %></td>
+		<td><%= submit_tag 'Add' %>
+	</tr>
+</table>
+
+
+<% end %>
+
+<h1><%= @email_list.name %> members</h1>
+	
+
+<table class="bvt_app_small_table">
+	<thead>
+		<tr class="yellow">
+			<td>Name</td>
+			<td>Email</td>
+			<td></td>
+		</tr>
+	</thead>
+	<tbody>
+	<%= render @email_list_items %>
+	</tbody>
+</table
+
+<%= link_to 'Back', email_lists_path %>
+
+
+</div>
+
+
+

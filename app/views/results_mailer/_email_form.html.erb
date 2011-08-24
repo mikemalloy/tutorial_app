@@ -1,0 +1,19 @@
+<h1>BVT Results for project <%= @test_result.project.name %> </h1>
+
+<table>
+	<tr><td>Date Run</td><td colspan=3><%= @test_result.date_run %></td></tr>
+	<tr></tr>
+	<tr><td>Result</td><td colspan=3><span color=green><%= @test_result.result %></span></td></tr>
+	<tr><td> </td></tr>
+	<tr><td>Server Revision:</td><td><%= @test_result.server_rev %></td>
+	<td>Client Revision</td><td><%= @test_result.client_rev %></td></tr>
+	<tr><td> </td></tr>
+	<tr><td>Total Test Cases</td><td colspan=3><%= @test_result.number_tests %></td></tr>
+	<tr><td>Number Passed</td><td><%= @test_result.number_passed %></td>
+	<td>Number Failed</td><td><%= @test_result.number_failed %></td></tr>
+	<tr><td>True Failures</td><td><%= @test_result.actual_failed %></td>
+	<td>False Negatives</td><td><%= @test_result.false_neg %></td></tr>
+	<tr><td> </td></tr>
+	<tr><td>Comments</td><td colspan=3><%= @test_result.comments %></td></tr>
+</table>
+		

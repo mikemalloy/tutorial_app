@@ -10,7 +10,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110819034843) do
+ActiveRecord::Schema.define(:version => 20110823170022) do
+
+  create_table "email_list_items", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.integer  "email_list_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "email_lists", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "microposts", :force => true do |t|
     t.string   "content"
@@ -42,6 +56,8 @@ ActiveRecord::Schema.define(:version => 20110819034843) do
     t.text     "comments"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "result"
+    t.boolean  "send_email"
   end
 
   create_table "users", :force => true do |t|

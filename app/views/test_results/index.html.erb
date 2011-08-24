@@ -3,15 +3,15 @@
 <table class="bvt_app_table">
 	<thead>
 	<tr class="yellow">
-		<th width="6%">Date Run</th>
+		<th width="6%">Date</th>
 		<th>Project</th>
-		<th>Server Revision</th>
-		<th>Client Revision</th>
-		<th>Number Tests</th>
-		<th>Number Passed</th>
-		<th>Number Failed</th>
-		<th>Actual Failures</th>
-		<th>False Negatives</th>
+		<th>Server</th>
+		<th>Client</th>
+		<th>Num Tests</th>
+		<th>Passed</th>
+		<th>Failed</th>
+		<th>Actual Fail</th>
+		<th>False Neg</th>
 		<th width="33%">Comments</th>
 	</tr>
 	</thead>
@@ -19,4 +19,5 @@
 	<%= render @test_results %>
 	</tbody>
 </table>
+<%= link_to "Add Test Result", new_test_result_path %>
 <%= will_paginate %>

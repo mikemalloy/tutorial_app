@@ -13,6 +13,16 @@ module SessionsHelper
     @current_user ||= user_from_remember_token
   end
   
+  def current_email_list_id=(email_list_id)
+    @current_email_list_id = email_list_id
+    store_email_list_id @current_email_list_id
+  end
+
+  def current_email_list_id
+    @current_email_list_id || session[:current_email_list_id]
+  end
+  
+  
   def signed_in?
     !current_user.nil?
   end
@@ -55,5 +65,9 @@ module SessionsHelper
     
     def clear_return_to
       session[:return_to] = nil
+    end
+    
+    def store_email_list_id (email_list_id)
+      session[:current_email_list_id] = email_list_id
     end
 end

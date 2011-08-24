@@ -1,7 +1,23 @@
 TutorialApp::Application.routes.draw do
-  get "test_results/new"
+  resources :email_list_items
 
-  get "test_results/index"
+  resources :email_lists do
+    member do
+      put 'add_email'
+    end
+  end
+  
+  resources :test_results
+  resources :test_results do
+    member do
+      put 'send_email'
+    end
+  end
+  
+  #resources :email_lists do
+   # resources :email_list_items
+  #end
+  
 
   get "projects/new"
 
@@ -13,7 +29,13 @@ TutorialApp::Application.routes.draw do
   resources :sessions, :only => [:new, :create, :destroy]
   resources :microposts, :only => [:create, :destroy]
   resources :projects, :only => [:new, :create, :destroy, :index]
-  resources :test_results, :only => [:new, :create, :destroy, :index]
+  #resources :test_results, :only => [:new, :create, :destroy, :index]
+  resources :test_results 
+  resources :test_results do
+    member do
+      put 'send_email'
+    end
+  end
   resources :users do
     resources :microposts
   end
@@ -23,14 +45,14 @@ TutorialApp::Application.routes.draw do
   match '/contact', :to => 'pages#contact'
   match '/about', :to => 'pages#about'
   match '/help', :to => 'pages#help'
-  match '/', :to => 'pages#home'
+  match '/', :to => 'test_results#index'
   
   match '/signup', :to => 'users#new'
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
   
   
-  root :to => 'pages#home'
+  root :to => 'test_results#index'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
