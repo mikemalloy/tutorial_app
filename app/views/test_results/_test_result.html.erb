@@ -1,6 +1,8 @@
 <tr>
 	<td><%= test_result.date_run %></td>
 	<td><%= test_result.project.name %></td>
+	<% color = test_result.result == "Pass" ? "green" : "red" %>
+	<td><span style=color:<%= color %>><%= test_result.result %></span></td>
 	<td><%= test_result.server_rev %></td>
 	<td><%= test_result.client_rev %></td>
 	<td><%= test_result.number_tests %></td>

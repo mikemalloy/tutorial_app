@@ -5,8 +5,10 @@
 	<%= render 'shared/error_messages', :object => f.object %>
 <table class="bvt_app_form_table">
 	<tr class="bvt_app_white">
-		<td><%= f.input :date_run, :label => "Date" %></td>
-		<td><%= f.association :project, :include_blank => false %></td>
+		<td colspan=2><%= f.input :date_run, :label => "Date" %></td>
+	</tr>
+	<tr>
+		<td colspan=2><%= f.association :project, :include_blank => false %></td>
 	</tr>
 	<tr>
 		<td><%= f.input :result, :collection => ["Pass", "Fail"], :include_blank => false %></td>

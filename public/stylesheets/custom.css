@@ -6,6 +6,8 @@
   width: 1050px;
 }
 
+. red_color { color: red; }
+. green_color {color: green; }
 
 body {
   background: #cff;
@@ -309,7 +311,7 @@ form.new_micropost textarea {
 table.bvt_app_form_table {
 	font: 11px/24px Verdana, Arial, Helvetica, sans-serif;
 	border-collapse: collapse;
-	width: 800px;
+	width: 650px;
 	background: white;
 	}
 	
@@ -344,6 +346,8 @@ table.bvt_app_table {
 	border-collapse: collapse;
 	width: 1000px; 
 	}
+
+table.bvt_app_table tbody tr:nth-child(even) td, tbody tr.even td {background:#e5ecf9;} 
 
 table.bvt_app_small_table th, table.bvt_app_table th {
 	border-top: 1px solid #FB7A31;
@@ -388,3 +392,19 @@ div.bvt_app_center
 {
 		margin-left: 20%;
 }
+
+.pretty th .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+/*
+.asc {
+  background-image: url(/images/up_arrow.gif);
+}
+
+.desc {
+  background-image: url(/images/down_arrow.gif);
+}
+*/

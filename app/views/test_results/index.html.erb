@@ -1,10 +1,18 @@
 <h1>Test Results</h1>
 
+<%= form_tag test_results_path, :method => 'get', :id => "test_result_search" do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+  <div id="test_results">
+
 <table class="bvt_app_table">
 	<thead>
 	<tr class="yellow">
-		<th width="6%">Date</th>
-		<th>Project</th>
+		<th width="17%"><%= sortable "date_run", Date %></th>
+		<th width="15%"><%= sortable "project_id", Project %></th>
+		<th>Result</th>
 		<th>Server</th>
 		<th>Client</th>
 		<th>Num Tests</th>
@@ -19,5 +27,9 @@
 	<%= render @test_results %>
 	</tbody>
 </table>
-<%= link_to "Add Test Result", new_test_result_path %>
 <%= will_paginate %>
+<%= link_to "Add Test Result", new_test_result_path %>
+
+</div>
+
+<% end %>
