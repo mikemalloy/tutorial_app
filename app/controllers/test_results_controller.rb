@@ -1,7 +1,7 @@
 class TestResultsController < ApplicationController
   helper_method :sort_column, :sort_direction
   
-  before_filter :authenticate
+  before_filter :authenticate, :only => [:send_email, :index, :destroy]
   
   def new
     @title = "New Test Result"
@@ -12,18 +12,21 @@ class TestResultsController < ApplicationController
   
   end
   
+  # POST /test_results
+  # POST /test_results.xml
   def create
+    debugger
+    
     @test_result = Test_result.new(params[:test_result])
-    if @test_result.save
-      if @test_result.send_email?
-        render 'send_email'
+    
+    respond_to do |format|
+      if @test_result.save
+        format.html { save_html }
+        format.xml  { render :xml => @test_result, :status => :created, :location => @test_result }
       else
-        flash[:success] = "Created new test result: Send email is #{params[:test_result][:send_email]}"
-        redirect_to(test_results_path)
+        format.html { not_save_html }
+        format.xml  { render :xml => @test_result.errors, :status => :unprocessable_entity }
       end
-    else
-      @title = "New Test Result"
-      render 'new'
     end
   end
   
@@ -51,6 +54,21 @@ class TestResultsController < ApplicationController
   end
   
   private
+  
+  def save_html
+    if @test_result.send_email?
+      render 'send_email'
+    else
+      flash[:success] = "Created new test result: Send email is #{params[:test_result][:send_email]}"
+      redirect_to(test_results_path)
+    end
+  end
+  
+  def not_save_html
+     @title = "New Test Result"
+     render 'new'
+  end
+  
   def sort_column
     Test_result.column_names.include?(params[:sort]) ? params[:sort] : "date_run"
   end
