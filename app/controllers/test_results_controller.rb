@@ -15,7 +15,6 @@ class TestResultsController < ApplicationController
   # POST /test_results
   # POST /test_results.xml
   def create
-    debugger
     
     @test_result = Test_result.new(params[:test_result])
     
@@ -35,8 +34,7 @@ class TestResultsController < ApplicationController
     # debugger
     @test_result = Test_result.find(params[:id])
     @email_list = params[:email_list]
-    rm = ResultsMailer.send_bvt_result(@email_list, @test_result).deliver
-    rm.deliver
+    rm = ResultsMailer.send_bvt_result(@email_list, @test_result)
     flash[:success] = "Test result added to the system"
     redirect_to(test_results_path)
   end

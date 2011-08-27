@@ -1,9 +1,9 @@
 .container {
-  width: 850px;
+  width: 750px;
 }
 
 .large_container {
-  width: 1050px;
+  width: 1100px;
 }
 
 . red_color { color: red; }
@@ -337,14 +337,14 @@ tr.bvt_app_white td {
 table.bvt_app_small_table {
 	font: 11px/24px Verdana, Arial, Helvetica, sans-serif;
 	border-collapse: collapse;
-	width: 800px; 
+	width: 650px; 
 	}
 
 
 table.bvt_app_table {
 	font: 11px/24px Verdana, Arial, Helvetica, sans-serif;
 	border-collapse: collapse;
-	width: 1000px; 
+	width: 1050px; 
 	}
 
 table.bvt_app_table tbody tr:nth-child(even) td, tbody tr.even td {background:#e5ecf9;} 

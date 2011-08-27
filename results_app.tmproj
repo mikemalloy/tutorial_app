@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>app/models/test_result.rb</string>
+	<string>config/database.yml</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -21,34 +21,6 @@
 	<integer>436</integer>
 	<key>metaData</key>
 	<dict>
-		<key>Gemfile</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>2</integer>
-				<key>line</key>
-				<integer>12</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>app/controllers/email_lists_controller.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>2</integer>
-				<key>line</key>
-				<integer>3</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
 		<key>app/controllers/projects_controller.rb</key>
 		<dict>
 			<key>caret</key>
@@ -68,14 +40,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>56</integer>
+				<integer>65</integer>
 				<key>line</key>
-				<integer>42</integer>
+				<integer>36</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>7</integer>
+			<integer>20</integer>
 		</dict>
 		<key>app/helpers/application_helper.rb</key>
 		<dict>
@@ -96,9 +68,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>7</integer>
+				<integer>52</integer>
 				<key>line</key>
-				<integer>11</integer>
+				<integer>7</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -265,14 +237,14 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>app/views/test_results/index.html.erb</key>
+		<key>config/database.yml</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>12</integer>
 				<key>line</key>
-				<integer>33</integer>
+				<integer>26</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -337,20 +309,6 @@
 				<integer>132</integer>
 			</dict>
 		</dict>
-		<key>public/stylesheets/custom.css</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>2</integer>
-				<key>line</key>
-				<integer>409</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>360</integer>
-		</dict>
 	</dict>
 	<key>openDocuments</key>
 	<array>
@@ -358,13 +316,12 @@
 		<string>app/models/test_result.rb</string>
 		<string>app/views/test_results/_test_result.html.erb</string>
 		<string>app/controllers/test_results_controller.rb</string>
-		<string>app/views/test_results/index.html.erb</string>
-		<string>public/stylesheets/custom.css</string>
-		<string>app/helpers/application_helper.rb</string>
+		<string>config/database.yml</string>
+		<string>app/mailers/results_mailer.rb</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{69, 89}, {1293, 937}}</string>
+	<string>{{470, 78}, {1231, 937}}</string>
 </dict>
 </plist>
