@@ -1,5 +1,8 @@
 class Test_result < ActiveRecord::Base
-  attr_accessible :date_run, :project_id, :server_rev, :client_rev, :number_tests, :number_passed, :number_failed, :actual_failed, :false_neg, :comments, :result, :send_email
+  attr_accessible :date_run, :project_id, :server_rev, 
+                  :client_rev, :number_tests, :number_passed, 
+                  :number_failed, :actual_failed, :false_neg, 
+                  :comments, :result, :send_email, :test_type
   
   belongs_to :project
   

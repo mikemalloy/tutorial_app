@@ -6,30 +6,7 @@
     <%= submit_tag "Search", :name => nil %>
   </p>
   <div id="test_results">
-
-<table class="bvt_app_table">
-	<thead>
-	<tr class="yellow">
-		<th width="17%"><%= sortable "date_run", Date %></th>
-		<th width="15%"><%= sortable "project_id", Project %></th>
-		<th>Result</th>
-		<th>Server</th>
-		<th>Client</th>
-		<th>Num Tests</th>
-		<th>Passed</th>
-		<th>Failed</th>
-		<th>Actual Fail</th>
-		<th>False Neg</th>
-		<th width="33%">Comments</th>
-	</tr>
-	</thead>
-	<tbody>
-	<%= render @test_results %>
-	</tbody>
-</table>
-<%= will_paginate %>
-<%= link_to "Add Test Result", new_test_result_path %>
-
-</div>
+	<%= render 'test_result_table'%>
+  </div>
 
 <% end %>

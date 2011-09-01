@@ -8,7 +8,6 @@ class ResultsMailer < ActionMailer::Base
     @email_list = EmailList.find_by_name(email_list)
     @email_list_items = @email_list.email_list_items
     @email_list_items.each do |list_item|
-      debugger
       m = mail(:to => list_item.email, :subject => subject_line )
       m.deliver
     end

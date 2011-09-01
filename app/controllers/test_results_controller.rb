@@ -41,7 +41,7 @@ class TestResultsController < ApplicationController
 
   def index
     @title = "All test results"
-    @test_results = Test_result.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page])
+    @test_results = Test_result.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 15)
     #@test_results = Test_result.order(sort_column + " " + sort_direction)
   end
   

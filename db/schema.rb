@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110825165956) do
+ActiveRecord::Schema.define(:version => 20110829224138) do
 
   create_table "email_list_items", :force => true do |t|
     t.string   "name"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20110825165956) do
     t.datetime "updated_at"
     t.string   "result"
     t.boolean  "send_email"
+    t.string   "test_type"
   end
 
   create_table "users", :force => true do |t|

@@ -8,7 +8,8 @@
 		<td colspan=2><%= f.input :date_run, :label => "Date" %></td>
 	</tr>
 	<tr>
-		<td colspan=2><%= f.association :project, :include_blank => false %></td>
+		<td><%= f.association :project, :include_blank => false %></td>
+		<td><%= f.input :test_type, :collection => ["BVT", "Smoke"], :include_blank => false %>
 	</tr>
 	<tr>
 		<td><%= f.input :result, :collection => ["Pass", "Fail"], :include_blank => false %></td>
