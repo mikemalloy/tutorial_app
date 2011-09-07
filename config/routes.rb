@@ -1,4 +1,6 @@
 TutorialApp::Application.routes.draw do
+  resources :test_suites
+
   resources :email_list_items
 
   resources :email_lists do

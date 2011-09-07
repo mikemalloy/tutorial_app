@@ -1,0 +1,73 @@
+<%= form_tag test_suites_path, :method => 'get', :id => "test_result_search" do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<table class="bvt_app_small_table" class='flexme1'>
+  <tr class="yellow">
+    <th><%= sortable "project_id", Project %></th>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Num tests</th>
+    <th>Automated</th>
+    <th>Manual Time</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @test_suites.each do |test_suite| %>
+  <tr>
+    <td><%= test_suite.project.name %></td>
+    <td><%= test_suite.name %></td>
+    <td><%= test_suite.suite_type %></td>
+    <td class="centered"><%= test_suite.num_tests %></td>
+    <td class="centered"><%= test_suite.num_automated %></td>
+    <td class="centered"><%= test_suite.manual_time %></td>
+    <td><%= link_to 'Edit', edit_test_suite_path(test_suite) %></td>
+    <td><%= link_to 'Destroy', test_suite, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<%= will_paginate %>
+<br />
+
+<%= link_to 'New Test', new_test_suite_path %>
+
+<% end %>
+<br />
+<table id="flex1"></table>
+<script type="text/javascript">
+			
+		$("#flex1").flexigrid(
+		{
+		method: 'GET',
+		url: 'test_suites.js',
+		dataType: 'json',
+		colModel : [
+			{display: 'Name', name : 'name', width:140, sortable : true, align: 'left'},
+			{display: 'Type', name : 'suite_type', width:140, sortable : true, align: 'center'},
+			{display: 'Tests', name : 'num_tests', width:140,  sortable : true, align: 'center'},
+			{display: 'Automated', name : 'num_automated', width:140, sortable : true, align: 'center'},
+			],
+		searchitems : [
+			{display: 'Name', name : 'name', isdefault: true}
+			],
+		sortname: "name",
+		sortorder: "asc",
+		usepager: true,
+		title: 'Tests',
+		useRp: true,
+		rp: 10,
+		//pagestat: "Affichage des lignes {from} à {to} sur {total}",
+	
+		showToggleBtn: true,
+  		width: 700,
+		height: 400,
+		//findtext: 'Chercher',
+		//procmsg: 'En cours, veuillez patienter...',
+		//nomsg: 'Aucun résultat',
+		//outof: 'sur'
+		}
+		);
+
+</script>

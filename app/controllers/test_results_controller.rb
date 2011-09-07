@@ -6,6 +6,7 @@ class TestResultsController < ApplicationController
   def new
     @title = "New Test Result"
     @test_result = Test_result.new
+    @test_suites = TestSuite.all
   end
   
   def blah
@@ -41,7 +42,7 @@ class TestResultsController < ApplicationController
 
   def index
     @title = "All test results"
-    @test_results = Test_result.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 15)
+    @test_results = Test_result.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 25)
     #@test_results = Test_result.order(sort_column + " " + sort_direction)
   end
   
@@ -64,6 +65,8 @@ class TestResultsController < ApplicationController
   
   def not_save_html
      @title = "New Test Result"
+     @test_result.project_id = nil
+     @test_suites = TestSuite.all
      render 'new'
   end
   

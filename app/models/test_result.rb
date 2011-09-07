@@ -2,9 +2,14 @@ class Test_result < ActiveRecord::Base
   attr_accessible :date_run, :project_id, :server_rev, 
                   :client_rev, :number_tests, :number_passed, 
                   :number_failed, :actual_failed, :false_neg, 
-                  :comments, :result, :send_email, :test_type
+                  :comments, :result, :send_email, 
+                  :test_suite_id, :time_elapsed
   
   belongs_to :project
+  belongs_to :test_suite
+  
+  validates :project_id, :presence => true
+  validates :test_suite_id, :presence => true
   
   def self.search(search)
     if search

@@ -6,11 +6,11 @@
 		<% if signed_in? %> 
 			<% if current_user.admin? %>
 				<li><%= link_to "Users", users_path %></li>
-				<li><%= link_to "Email Lists", email_lists_path %>
+				<li><%= link_to "Email Lists", email_lists_path %></li>
+				<li><%= link_to "Tests", test_suites_path %>
 			<% end %>
 			<li><%= link_to "Settings", edit_user_path(current_user) %></li>
 		<% end %> 
-		<li><%= link_to "Help", help_path %></li> 
 		<% if signed_in? %> 
 			<li><%= link_to "Sign out", signout_path, :method => :delete %></li> 
 		<% else %> 

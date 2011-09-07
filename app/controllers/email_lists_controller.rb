@@ -5,7 +5,7 @@ class EmailListsController < ApplicationController
   # GET /email_lists
   # GET /email_lists.xml
   def index
-    @email_lists = EmailList.all
+    @email_lists = EmailList.all 
 
     respond_to do |format|
       format.html # index.html.erb
@@ -53,7 +53,11 @@ class EmailListsController < ApplicationController
       format.xml  { render :xml => @email_list }
     end
   end
-
+  
+  def data
+    @email_lists = EmailList.all()
+  end
+  
   # GET /email_lists/1/edit
   def edit
     @email_list = EmailList.find(params[:id])

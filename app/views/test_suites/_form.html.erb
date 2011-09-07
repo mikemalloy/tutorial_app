@@ -1,0 +1,16 @@
+<%= simple_form_for(@test_suite) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.association :project %>
+    <%= f.input :name %>
+    <%= f.input :suite_type, :label => "Type", :collection => ["BVT", "Smoke", "Regression"]%>
+    <%= f.input :num_tests %>
+    <%= f.input :num_automated %>
+    <%= f.input :manual_time, :hint => "Enter time in minutes"%>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

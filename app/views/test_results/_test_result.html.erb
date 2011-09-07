@@ -1,7 +1,7 @@
 <tr>
 	<td><%= test_result.date_run %></td>
 	<td><%= test_result.project.name %></td>
-	<td><%= test_result.test_type %></td>
+	<td><%= test_result.test_suite.suite_type %></td>
 	<% color = test_result.result == "Pass" ? "green" : "red" %>
 	<td><span style=color:<%= color %>><%= test_result.result %></span></td>
 	<td><%= test_result.server_rev %></td>
@@ -11,5 +11,6 @@
 	<td><%= test_result.number_failed %></td>
 	<td><%= test_result.actual_failed %></td>
 	<td><%= test_result.false_neg %></td>
+	<td><%= test_result.time_elapsed %></td>
 	<td class="comment"><%= test_result.comments %></td>
 </tr>

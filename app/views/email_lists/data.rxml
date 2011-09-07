@@ -1,0 +1,11 @@
+xml.instruct! :xml, :version=>"1.0"
+
+xml.tag!("rows") do
+    @email_lists.each do |email_list|
+        xml.tag!("row",{ "id" => email_list.id }) do
+            xml.tag!("cell", email_list.name)
+            xml.tag!("cell", "show")
+            xml.tag!("cell", "delete")
+        end
+    end
+end
