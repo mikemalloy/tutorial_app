@@ -9,10 +9,6 @@ class TestResultsController < ApplicationController
     @test_suites = TestSuite.all
   end
   
-  def blah
-  
-  end
-  
   # POST /test_results
   # POST /test_results.xml
   def create
@@ -30,18 +26,36 @@ class TestResultsController < ApplicationController
     end
   end
   
+  def edit
+    @title = "Edit Test Result"
+    @test_result = Test_result.find(params[:id])
+    @test_suites = TestSuite.all
+  end
+  
+  def update
+    @test_result = Test_result.find(params[:id])
+
+    if @test_suite.update_attributes(params[:test_suite])
+      format.html { save_html }
+    else
+      format.html { render :action => "edit" }
+    end
+  end
+  
   def send_email
     @title = "Send Email"
     # debugger
     @test_result = Test_result.find(params[:id])
     @email_list = params[:email_list]
-    rm = ResultsMailer.send_bvt_result(@email_list, @test_result)
+    @user = current_user
+    rm = ResultsMailer.send_bvt_result(@email_list, @test_result, @user)
     flash[:success] = "Test result added to the system"
     redirect_to(test_results_path)
   end
 
   def index
     @title = "All test results"
+    @user = current_user
     @test_results = Test_result.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 25)
     #@test_results = Test_result.order(sort_column + " " + sort_direction)
   end
@@ -56,9 +70,11 @@ class TestResultsController < ApplicationController
   
   def save_html
     if @test_result.send_email?
+      @user = current_user
+      @email_lists = EmailList.all
       render 'send_email'
     else
-      flash[:success] = "Created new test result: Send email is #{params[:test_result][:send_email]}"
+      flash[:success] = "Create or edit action completed successfully"
       redirect_to(test_results_path)
     end
   end

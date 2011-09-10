@@ -5,6 +5,7 @@
 	<tr></tr>
 	<tr><td>Result</td><td colspan=3><span color=green><%= @test_result.result %></span></td></tr>
 	<tr><td> </td></tr>
+	<tr><td>Reported by</td><td colspan=3><%= @user.name %></td></tr>
 	<tr><td>Server Revision:</td><td><%= @test_result.server_rev %></td>
 	<td>Client Revision</td><td><%= @test_result.client_rev %></td></tr>
 	<tr><td> </td></tr>

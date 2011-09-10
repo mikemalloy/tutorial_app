@@ -6,6 +6,9 @@ class TestSuite < ActiveRecord::Base
   validates :project_id, :presence => true
   validates :num_tests, :presence => true
   validates :num_automated, :presence => true
+  validates :suite_type, :presence => true
+  validates :name, :presence => true
+  validates :manual_time, :presence => true
   
   def self.search(search)
     if search

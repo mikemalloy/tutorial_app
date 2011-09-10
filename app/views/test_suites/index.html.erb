@@ -24,7 +24,7 @@
     <td class="centered"><%= test_suite.num_automated %></td>
     <td class="centered"><%= test_suite.manual_time %></td>
     <td><%= link_to 'Edit', edit_test_suite_path(test_suite) %></td>
-    <td><%= link_to 'Destroy', test_suite, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= button_to 'Destroy', test_suite, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -35,6 +35,8 @@
 
 <% end %>
 <br />
+
+<!--
 <table id="flex1"></table>
 <script type="text/javascript">
 			
@@ -71,3 +73,4 @@
 		);
 
 </script>
+ -->

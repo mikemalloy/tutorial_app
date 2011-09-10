@@ -5,7 +5,7 @@
     <%= f.association :project %>
     <%= f.input :name %>
     <%= f.input :suite_type, :label => "Type", :collection => ["BVT", "Smoke", "Regression"]%>
-    <%= f.input :num_tests %>
+    <%= f.input :num_tests, :label => "Test Checks" %>
     <%= f.input :num_automated %>
     <%= f.input :manual_time, :hint => "Enter time in minutes"%>
   </div>

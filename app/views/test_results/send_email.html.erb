@@ -1,10 +1,28 @@
+<script type="text/javascript">
+
+$(function() {
+	var $project_id = <%= @test_result.project_id %>;
+	var $email_lists = new Array();
+	<% for email_list in @email_lists -%>
+	  	$email_lists.push(new Array(<%= email_list.project_id %>, '<%=h email_list.name %>'));
+	<% end -%>
+	var $options = '';
+    for( $i=0; $i < $email_lists.length; $i++ ) { 
+		if( $project_id == $email_lists[$i][0]) {
+			$options += '<option value="' + $email_lists[$i][1] + '">' + $email_lists[$i][1] + '</option>'; 
+		}
+	}
+	$("#email_list").html( $options )
+});
+
+</script>
 
 <div>
 <%= form_tag( send_email_test_result_path(@test_result),  :method => :put) do %>
 <table class="bvt_app_add_member_table">
 	<tr>
 		<td>Email List</td>
-		<td><%= select_tag "email_list", options_for_select(EmailList.find(:all).map { |r| r.name }) %></td>	
+		<td><%= select_tag "email_list" %></td>	
 	</tr>
 </table>
 

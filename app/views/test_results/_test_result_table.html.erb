@@ -4,17 +4,22 @@
 	<tr class="yellow">
 		<th width="17%"><%= sortable "date_run", Date %></th>
 		<th width="15%"><%= sortable "project_id", Project %></th>
-		<th>Type</th>
-		<th>Result</th>
-		<th>Server</th>
-		<th>Client</th>
-		<th>Num Tests</th>
-		<th>Passed</th>
-		<th>Failed</th>
-		<th>Actual Fail</th>
-		<th>False Neg</th>
-		<th>Time</th>
+		<th width="5%">Type</th>
+		<th width="6%">Result</th>
+		<th width="6%">Server</th>
+		<th width="6%">Client</th>
+		<th width="5%">Num Tests</th>
+		<th width="5%">Auto</th>
+		<th width="6%">Passed</th>
+		<th width="6%">Failed</th>
+		<th width="6%">Actual Fail</th>
+		<th width="5%">False Neg</th>
+		<th width="5%">Time</th>
+		<th width="5%"></th>
 		<th width="33%">Comments</th>
+		<% if @user.admin? %>
+			<th width="8%"></th>
+		<% end %>
 	</tr>
 	</thead>
 	<tbody>

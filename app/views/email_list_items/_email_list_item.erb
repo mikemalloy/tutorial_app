@@ -1,6 +1,6 @@
 <tr>
 	<td><%= email_list_item.name %></td><td><%= email_list_item.email %></td>
 
-	<td><%= link_to "delete", email_list_item, :method => :delete, :confirm => "You sure?",
+	<td><%= button_to "delete", email_list_item, :method => :delete, :confirm => "You sure?",
 									:title => "Delete #{email_list_item.name}" %></td>
 </tr>

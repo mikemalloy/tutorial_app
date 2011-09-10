@@ -1,0 +1,94 @@
+<script type="text/javascript">
+
+$(function() {
+  $("#test_result_project_id").live("change", function() {
+	$("#test_result_number_tests").val(""); 
+	$("#test_result_num_automated").val("");
+	var $project_id = $("#test_result_project_id").val();
+	var $test_suites = new Array();
+	<% for test_suite in @test_suites -%>
+	  	$test_suites.push(new Array(<%= test_suite.project_id %>, '<%=h test_suite.name %>', <%= test_suite.id %>));
+	<% end -%>
+	var $options = '<option></option>';
+    for( $i=0; $i < $test_suites.length; $i++ ) { 
+		if( $project_id == $test_suites[$i][0]) {
+			$options += '<option value="' + $test_suites[$i][2] + '">' + $test_suites[$i][1] + '</option>'; 
+		}
+	}
+	$("#test_result_test_suite_id").html( $options )
+  });
+});
+
+$(function() {
+  $("#test_result_test_suite_id").live("change", function() {
+	var $suite_id = $("#test_result_test_suite_id").val();
+	var $test_suites = new Array();
+	<% for test_suite in @test_suites -%>
+	  	$test_suites.push(new Array(<%= test_suite.id %>,<%= test_suite.num_tests %>, <%= test_suite.num_automated %>));
+	<% end -%>
+	var $options = '';
+    for( $i=0; $i < $test_suites.length; $i++ ) { 
+		if( $suite_id == $test_suites[$i][0]) {
+			$("#test_result_number_tests").val( $test_suites[$i][1] + ""); 
+			$("#test_result_num_automated").val( $test_suites[$i][2] + ""); 
+		}
+	}
+  });
+});
+ 
+ </script>
+
+<h1>Enter Test Result</h1>
+
+
+<%= simple_form_for(@test_result) do |f| %>
+	<%= render 'shared/error_messages', :object => f.object %>
+<table class="bvt_app_form_table">
+	<tr class="bvt_app_white">
+		<td colspan=2><%= f.input :date_run, :label => "Date" %></td>
+	</tr>
+	<tr>
+		<td><%= f.association :project %></td>
+		<% if @test_result.test_suite_id != nil %>
+			<td><%= f.association :test_suite %></td>
+		<% else %>
+			<td><%= f.input :test_suite_id, :collection => [""] %>
+		<% end %>
+	</tr>
+	<tr>
+		<td><%= f.input :result, :collection => ["Pass", "Fail"], :include_blank => false %></td>
+		<td></td>
+	</tr>
+	<tr class="bvt_app_white">
+		<td><%= f.input :server_rev, :input_html => {:size => 15, :maxlength => 15} %></td>
+		<td><%= f.input :client_rev, :input_html => {:size => 15, :maxlength => 15} %></td>
+	</tr>
+	<tr class="bvt_app_white">	
+		<td><%= f.input :number_tests, :as => :string, :input_html => {:size => 8, :maxlength => 6} %></td>
+		<td><%= f.input :num_automated, :as => :string, :input_html => {:size => 8, :maxlength => 6} %></td>
+		
+	</tr>
+	<tr class="bvt_app_white">
+		<td><%= f.input :number_passed, :as => :string, :input_html => {:size => 8, :maxlength => 6} %></td>
+		<td><%= f.input :number_failed, :as => :string, :input_html => {:size => 8, :maxlength => 6} %></td>
+		
+	</tr>
+	<tr class="bvt_app_white">
+		<td><%= f.input :actual_failed, :as => :string, :input_html => {:size => 8, :maxlength => 6} %></td>
+		<td colspan=2><%= f.input :false_neg, :as => :string, :label => "False Negatives", :input_html => {:size => 8, :maxlength => 6} %></td>
+	</tr>
+	<tr class="bvt_app_white">
+		<td><%= f.input :time_elapsed, :as => :string, :input_html => {:size => 8, :maxlength => 6} %></td>
+	</tr>
+	<tr class="bvt_app_white">
+		<td colspan=2><%= f.input :comments %></td>
+	</tr>
+	<tr class="bvt_app_white">
+		<td><%= f.input :send_email, :as => :radio %></td>
+		<td></td>
+	</tr>
+</table>
+	<div class="actions">
+		<%= f.submit "Process Result" %>
+	</div>
+<% end %>

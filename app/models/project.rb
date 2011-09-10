@@ -7,5 +7,6 @@ class Project < ActiveRecord::Base
                      :length => {:maximum => 50}
   
   has_many :test_results
+  has_many :email_lists
   
 end

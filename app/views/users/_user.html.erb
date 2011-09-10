@@ -1,9 +1,13 @@
-<li>
-	<%= gravatar_for user, :size => 30 %>
-	<%= link_to user.name, user %>
+<tr>
+	<td class="contentcentered"><%= gravatar_for user, :size => 30 %></td>
+	<td class="contentcentered"><%= link_to user.name, user %></td>
+	
 	<% if current_user.admin? %> 
-	| <%= link_to "delete", user, :method => :delete, :confirm => "You sure?",
-									:title => "Delete #{user.name}" %>
-	| <%= link_to "edit", edit_user_path(user) %>
+	<td class="contentcentered"><%= button_to "delete", user, :method => :delete, :confirm => "You sure?",
+									:title => "Delete #{user.name}" %></td>
+	<td class = "contentcentered"><%= link_to "edit", edit_user_path(user) %></td>
+	<% else %>
+	<td></td>
+	<td></td>
 	<% end %>
-</li>
+</tr>

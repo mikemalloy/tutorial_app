@@ -2,8 +2,16 @@
 
 <%= will_paginate %>
 
-<ul class="users">
+<table class="bvt_app_small_table">
+	<thead>
+		<tr>
+			<th>Gravatar</th>
+			<th>Name</th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
 	<%= render @users %>
-</ul>
+</table>
 
 <%= will_paginate %>

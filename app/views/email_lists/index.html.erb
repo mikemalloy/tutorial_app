@@ -8,14 +8,16 @@
     <th>Name</th>
     <th></th>
     <th></th>
+	<th></th>
   </tr>
 	</thead>
 	<tbody>
 <% @email_lists.each do |email_list| %>
   <tr>
     <td><%= email_list.name %></td>
+	<td><%= link_to 'Edit', edit_email_list_path(email_list) %>
     <td><%= link_to 'Show', email_list %></td>
-    <td><%= link_to 'Destroy', email_list, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= button_to 'Destroy', email_list, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 	</tbody>

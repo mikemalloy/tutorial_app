@@ -7,10 +7,15 @@
 	<td><%= test_result.server_rev %></td>
 	<td><%= test_result.client_rev %></td>
 	<td><%= test_result.number_tests %></td>
+	<td><%= test_result.num_automated %></td>
 	<td><%= test_result.number_passed %></td>
 	<td><%= test_result.number_failed %></td>
 	<td><%= test_result.actual_failed %></td>
 	<td><%= test_result.false_neg %></td>
 	<td><%= test_result.time_elapsed %></td>
-	<td class="comment"><%= test_result.comments %></td>
+	<td><%= link_to 'Edit', edit_test_result_path(test_result) %></td>
+	<td class="leftalign"><%= test_result.comments %></td>
+	<% if @user.admin? %>
+		<td> <%= button_to 'Destroy', test_result, :confirm => 'Are you sure?', :method => :delete %></td>
+	<% end %>
 </tr>
