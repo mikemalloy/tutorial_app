@@ -35,10 +35,10 @@ class TestResultsController < ApplicationController
   def update
     @test_result = Test_result.find(params[:id])
 
-    if @test_suite.update_attributes(params[:test_suite])
-      format.html { save_html }
+    if @test_result.update_attributes(params[:test_result])
+      save_html
     else
-      format.html { render :action => "edit" }
+      render :action => "edit" 
     end
   end
   

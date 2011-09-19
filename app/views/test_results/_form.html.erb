@@ -79,6 +79,10 @@ $(function() {
 	</tr>
 	<tr class="bvt_app_white">
 		<td><%= f.input :time_elapsed, :as => :string, :input_html => {:size => 8, :maxlength => 6} %></td>
+		<td><%= f.input :jira_tickets, :as => :string, :input_html => {:size => 15, :maxlength => 256}, :hint => "Enter ticket IDs separated by commas" %></td>
+	</tr>
+	<tr class="bvt_app_white">
+		<td><%= f.input :da_results, :label => "DA Result url",  :as => :string, :input_html => {:size => 15, :maxlength => 400} %></td>
 	</tr>
 	<tr class="bvt_app_white">
 		<td colspan=2><%= f.input :comments %></td>

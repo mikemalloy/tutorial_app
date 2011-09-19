@@ -3,7 +3,8 @@ class Test_result < ActiveRecord::Base
                   :client_rev, :number_tests, :number_passed, 
                   :number_failed, :actual_failed, :false_neg, 
                   :comments, :result, :send_email, 
-                  :test_suite_id, :time_elapsed, :num_automated
+                  :test_suite_id, :time_elapsed, :num_automated,
+                  :jira_tickets, :da_results
   
   belongs_to :project
   belongs_to :test_suite

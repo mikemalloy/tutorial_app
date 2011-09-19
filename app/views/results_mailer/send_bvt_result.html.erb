@@ -1,1 +1,31 @@
-<%= render 'email_form' %>
+<h1><%= @test_result.test_suite.suite_type %> Results for project <%= @test_result.project.name %></h1>
+
+
+Date Run: <%= @test_result.date_run %><br />
+Result: <%= @test_result.result %><br />	 
+Reported by: <%= @user.name %><br />
+Server Revision: <%= @test_result.server_rev %><br />
+Client Revision: <%= @test_result.client_rev %><br />	 
+Total Test Checks: <%= @test_result.number_tests %><br />
+Number Passed: <%= @test_result.number_passed %><br />
+Number Failed: <%= @test_result.number_failed %><br />
+True Failures: <%= @test_result.actual_failed %><br />
+False Negatives: <%= @test_result.false_neg %><br />
+Elapsed Time: <%= @test_result.time_elapsed %> minutes<br />
+<% jira_tickets = @test_result.jira_tickets.split(",") if @test_result.jira_tickets != nil %>
+<% if jira_tickets != nil %>
+Jira Tickets Entered: 
+	<% jira_tickets.each do |ticket| %>
+		<%= link_to ticket.strip, "http://jira.corp.zynga.com/browse/"+ ticket.strip  %>
+	<% end %>
+	<br />
+<% end %>
+<% if @test_result.da_results != nil %>
+	<% if @test_result.da_results.strip != "" %>
+Detailed DeviceAnywhere Test results can be found <%= link_to "here", @test_result.da_results %>.<br />
+	<% end %>
+<% end %>
+Manual Time Equivalent: <%= @test_result.test_suite.manual_time %> minutes<br />	 
+Comments: <%= @test_result.comments %><br />
+
+
