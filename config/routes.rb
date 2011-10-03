@@ -1,4 +1,13 @@
 TutorialApp::Application.routes.draw do
+  resources :performance_test_results
+
+  resources :performance_tests
+  resources :performance_tests do
+    member do
+      put 'add_test_result'
+    end
+  end
+
   resources :test_suites
 
   resources :email_list_items

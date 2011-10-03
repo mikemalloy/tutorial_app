@@ -1,0 +1,31 @@
+<%= simple_form_for(@performance_test_result) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :performance_test_id, :as => :hidden %>
+	<%= f.input :date_run %>
+    <%= f.input :measure1max %>
+    <%= f.input :measure1min %>
+    <%= f.input :measure1avg %>
+    <%= f.input :measure1values %>
+    <%= f.input :measure2max %>
+    <%= f.input :measure2min %>
+    <%= f.input :measure2avg %>
+    <%= f.input :measure2values %>
+    <%= f.input :measure3max %>
+    <%= f.input :measure3min %>
+    <%= f.input :measure3avg %>
+    <%= f.input :measure3values %>
+    <%= f.input :measure4max %>
+    <%= f.input :measure4min %>
+    <%= f.input :measure4avg %>
+    <%= f.input :measure4values %>
+    <%= f.input :measure5max %>
+    <%= f.input :measure5min %>
+    <%= f.input :measure5values %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -5,6 +5,7 @@
 
 
 
+
 $(function() {
   $("#test_results th a, #test_results .pagination a").live("click", function() {
     $.getScript(this.href);
@@ -12,3 +13,11 @@ $(function() {
   });
 });
 
+$(document).ready(function(){	 
+	$("#manual_entries").hide();	 
+	$('#show_hide').click(function(){
+		$("#manual_entries").slideToggle();
+		return false;
+	});
+	 
+});

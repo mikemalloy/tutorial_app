@@ -5,8 +5,9 @@ gem 'rails', '3.1.0'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3', '1.3.3'
+# gem 'sqlite3', '1.3.3'
 gem 'pg'
+gem 'mysql2'
 gem 'gravatar_image_tag', '1.0.0.pre2'
 gem 'will_paginate', '3.0.pre2'
 gem 'simple_form'
@@ -32,8 +33,6 @@ group :assets do
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
 end
-
-gem 'jquery-rails'
 
 # Use unicorn as the web server
 # gem 'unicorn'

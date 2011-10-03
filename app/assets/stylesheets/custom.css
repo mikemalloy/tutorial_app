@@ -1,5 +1,5 @@
 .container {
-  width: 800px;
+  width: 850px;
 }
 
 .large_container {
@@ -267,7 +267,7 @@ form.new_micropost textarea {
 
 .simple_form label {
   float: left;
-  width: 150px;
+  width: 200px;
   text-align: right;
   margin: 2px 10px;
   font-size: 14px;
@@ -311,7 +311,7 @@ form.new_micropost textarea {
 table.bvt_app_form_table {
 	font: 11px/24px Verdana, Arial, Helvetica, sans-serif;
 	border-collapse: collapse;
-	width: 700px;
+	width: 800px;
 	background: white;
 	}
 	
@@ -340,6 +340,9 @@ table.bvt_app_small_table {
 	width: 700px; 
 	}
 
+table.bvt_app_small_table td {
+	text-align: center;
+}
 
 table.bvt_app_table {
 	font: 11px/24px Verdana, Arial, Helvetica, sans-serif;

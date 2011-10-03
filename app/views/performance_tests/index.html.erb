@@ -1,0 +1,30 @@
+<h1>Performance Tests</h1>
+
+
+<table class="bvt_app_small_table">
+ 	<thead>
+  <tr class="yellow">
+	<th>Project</th>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+	<th></th>
+  </tr>
+	</thead>
+	<tbody>
+		<% @performance_tests.each do |performance_test| %>
+		  <tr>
+			<td><%= performance_test.project.name %></td>
+		    <td><%= performance_test.name %></td>
+			<td><%= link_to 'Edit', edit_performance_test_path(performance_test)  %>
+		    <td><%= link_to 'Show',  performance_test %></td>
+		    <td><%= button_to 'Destroy', performance_test, :confirm => 'Are you sure?', :method => :delete %></td>
+		  </tr>
+		<% end %>
+	</tbody>
+</table>
+
+
+<br />
+
+<%= link_to 'New Performance test', new_performance_test_path %>

@@ -8,5 +8,6 @@ class Project < ActiveRecord::Base
   
   has_many :test_results
   has_many :email_lists
+  has_many :performance_tests
   
 end

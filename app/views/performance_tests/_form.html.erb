@@ -1,0 +1,17 @@
+<%= simple_form_for(@performance_test) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+	<%= f.association :project %>
+    <%= f.input :name %>
+    <%= f.input :measure1name, :label => "Measure 1 Name" %>
+    <%= f.input :measure2name, :label => "Measure 2 Name" %>
+    <%= f.input :measure3name, :label => "Measure 3 Name" %>
+    <%= f.input :measure4name, :label => "Measure 4 Name" %>
+    <%= f.input :measure5name, :label => "Measure 5 Name" %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

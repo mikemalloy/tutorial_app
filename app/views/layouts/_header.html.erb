@@ -1,5 +1,7 @@
 <header>
+<!--
 <%= link_to logo, root_path %> 
+-->
 <nav class="round">
 	<ul> 
 		<li><%= link_to "Home", root_path %></li> 
@@ -7,7 +9,8 @@
 			<% if current_user.admin? %>
 				<li><%= link_to "Users", users_path %></li>
 				<li><%= link_to "Email Lists", email_lists_path %></li>
-				<li><%= link_to "Tests", test_suites_path %>
+				<li><%= link_to "Performance Tests", performance_tests_path %>
+				<li><%= link_to "BVT/Smoke Tests", test_suites_path %></li>
 			<% end %>
 			<li><%= link_to "Settings", edit_user_path(current_user) %></li>
 		<% end %> 

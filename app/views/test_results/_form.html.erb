@@ -84,6 +84,18 @@ $(function() {
 	<tr class="bvt_app_white">
 		<td><%= f.input :da_results, :label => "DA Result url",  :as => :string, :input_html => {:size => 15, :maxlength => 400} %></td>
 	</tr>
+</table>
+<button id="show_hide">Enter Manual Results</button>
+<table id="manual_entries" class="bvt_app_form_table">
+	<tr class="bvt_app_white">
+		<td><%= f.input :manual_passed, :as => :string, :input_html => {:size => 8, :maxlength => 6} %></td>
+		<td><%= f.input :manual_failed, :as => :string, :input_html => {:size => 8, :maxlength => 6} %></td>
+	</tr>
+	<tr class="bvt_app_white">
+		<td><%= f.input :manual_time_elapsed, :as => :string, :input_html => {:size => 8, :maxlength => 6} %></td>
+	</tr>
+</table>
+<table>
 	<tr class="bvt_app_white">
 		<td colspan=2><%= f.input :comments %></td>
 	</tr>

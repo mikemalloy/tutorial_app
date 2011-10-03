@@ -3,4 +3,6 @@
 <%= f.input :email %>
 <%= f.input :password %>
 <%= f.input :password_confirmation, :label => "Confirmation" %>
-<%= f.input :admin %>
+<% if signed_in? and current_user.admin? %>
+	<%= f.input :admin %>
+<% end %>

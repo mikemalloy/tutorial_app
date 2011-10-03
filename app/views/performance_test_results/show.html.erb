@@ -1,0 +1,175 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Performance test:</b>
+  <%= @performance_test_result.performance_test.name %>
+</p>
+
+<p>
+	Measure 1: <%= @performance_test_result.performance_test.measure1name %>
+	<table class="bvt_app_small_table">
+		<thead>
+</p>
+<p>
+	  <tr class="yellow">
+		<th>Measure</th>
+		<th>Value</th>
+	  </tr>
+		<tbody>
+			<tr><td>Max Time</td><td><%= @performance_test_result.measure1max %></td></tr>
+			<tr><td>Min Time</td><td><%= @performance_test_result.measure1min %></td></tr>
+			<tr><td>Avg Time</td><td><%= @performance_test_result.measure1avg %></td></tr>
+		</tbody>
+	</table>
+</p>
+<p>	
+ 	<table class="bvt_app_small_table">
+	 	<thead>
+	  <tr class="yellow">
+		<th>Iteration Timings</th>
+	  </tr>
+		</thead>
+		<tbody>
+  <% m1values = @performance_test_result.measure1values.split(",") %>
+	<% m1values.each do |value| %>
+	<tr><td><%= value %></td></tr>
+	<% end %>
+  </table>
+</p>
+
+<% unless @performance_test_result.performance_test.measure2name == nil or @performance_test_result.performance_test.measure2name.strip == "" %>
+<p>
+	Measure 2: <%= @performance_test_result.performance_test.measure2name %>
+	<table class="bvt_app_small_table">
+		<thead>
+</p>
+<p>
+	  <tr class="yellow">
+		<th>Measure</th>
+		<th>Value</th>
+	  </tr>
+		<tbody>
+			<tr><td>Max Time</td><td><%= @performance_test_result.measure2max %></td></tr>
+			<tr><td>Min Time</td><td><%= @performance_test_result.measure2min %></td></tr>
+			<tr><td>Avg Time</td><td><%= @performance_test_result.measure2avg %></td></tr>
+		</tbody>
+	</table>
+</p>
+<p>	
+ 	<table class="bvt_app_small_table">
+	 	<thead>
+	  <tr class="yellow">
+		<th>Iteration Timings</th>
+	  </tr>
+		</thead>
+		<tbody>
+  <% m1values = @performance_test_result.measure2values.split(",") %>
+	<% m1values.each do |value| %>
+	<tr><td><%= value %></td></tr>
+	<% end %>
+  </table>
+</p>
+<% end %>
+
+<% unless @performance_test_result.performance_test.measure3name == nil or @performance_test_result.performance_test.measure3name.strip == "" %>
+<p>
+	Measure 2: <%= @performance_test_result.performance_test.measure3name %>
+	<table class="bvt_app_small_table">
+		<thead>
+</p>
+<p>
+	  <tr class="yellow">
+		<th>Measure</th>
+		<th>Value</th>
+	  </tr>
+		<tbody>
+			<tr><td>Max Time</td><td><%= @performance_test_result.measure3max %></td></tr>
+			<tr><td>Min Time</td><td><%= @performance_test_result.measure3min %></td></tr>
+			<tr><td>Avg Time</td><td><%= @performance_test_result.measure3avg %></td></tr>
+		</tbody>
+	</table>
+</p>
+<p>	
+ 	<table class="bvt_app_small_table">
+	 	<thead>
+	  <tr class="yellow">
+		<th>Iteration Timings</th>
+	  </tr>
+		</thead>
+		<tbody>
+  <% m1values = @performance_test_result.measure3values.split(",") %>
+	<% m1values.each do |value| %>
+	<tr><td><%= value %></td></tr>
+	<% end %>
+  </table>
+</p>
+<% end %>
+
+<% unless @performance_test_result.performance_test.measure4name == nil or @performance_test_result.performance_test.measure4name.strip == "" %>
+<p>
+	Measure 2: <%= @performance_test_result.performance_test.measure4name %>
+	<table class="bvt_app_small_table">
+		<thead>
+</p>
+<p>
+	  <tr class="yellow">
+		<th>Measure</th>
+		<th>Value</th>
+	  </tr>
+		<tbody>
+			<tr><td>Max Time</td><td><%= @performance_test_result.measure4max %></td></tr>
+			<tr><td>Min Time</td><td><%= @performance_test_result.measure4min %></td></tr>
+			<tr><td>Avg Time</td><td><%= @performance_test_result.measure4avg %></td></tr>
+		</tbody>
+	</table>
+</p>
+<p>	
+ 	<table class="bvt_app_small_table">
+	 	<thead>
+	  <tr class="yellow">
+		<th>Iteration Timings</th>
+	  </tr>
+		</thead>
+		<tbody>
+  <% m1values = @performance_test_result.measure4values.split(",") %>
+	<% m1values.each do |value| %>
+	<tr><td><%= value %></td></tr>
+	<% end %>
+  </table>
+</p>
+<% end %>
+
+<% unless @performance_test_result.performance_test.measure5name == nil or @performance_test_result.performance_test.measure5name.strip == "" %>
+<p>
+	Measure 2: <%= @performance_test_result.performance_test.measure5name %>
+	<table class="bvt_app_small_table">
+		<thead>
+</p>
+<p>
+	  <tr class="yellow">
+		<th>Measure</th>
+		<th>Value</th>
+	  </tr>
+		<tbody>
+			<tr><td>Max Time</td><td><%= @performance_test_result.measure5max %></td></tr>
+			<tr><td>Min Time</td><td><%= @performance_test_result.measure5min %></td></tr>
+			<tr><td>Avg Time</td><td><%= @performance_test_result.measure5avg %></td></tr>
+		</tbody>
+	</table>
+</p>
+<p>	
+ 	<table class="bvt_app_small_table">
+	 	<thead>
+	  <tr class="yellow">
+		<th>Iteration Timings</th>
+	  </tr>
+		</thead>
+		<tbody>
+  <% m1values = @performance_test_result.measure5values.split(",") %>
+	<% m1values.each do |value| %>
+	<tr><td><%= value %></td></tr>
+	<% end %>
+  </table>
+</p>
+<% end %>
+
