@@ -9,12 +9,12 @@
 			<% if current_user.admin? %>
 				<li><%= link_to "Users", users_path %></li>
 				<li><%= link_to "Email Lists", email_lists_path %></li>
-				<li><%= link_to "Performance Tests", performance_tests_path %>
-				<li><%= link_to "BVT/Smoke Tests", test_suites_path %></li>
 			<% end %>
 			<li><%= link_to "Settings", edit_user_path(current_user) %></li>
 		<% end %> 
 		<% if signed_in? %> 
+			<li><%= link_to "Performance Tests", performance_tests_path %>
+			<li><%= link_to "BVT/Smoke Tests", test_suites_path %></li>
 			<li><%= link_to "Sign out", signout_path, :method => :delete %></li> 
 		<% else %> 
 			<li><%= link_to "Sign in", signin_path %></li> <% end %>

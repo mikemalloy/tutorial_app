@@ -8,17 +8,66 @@
   <%= @performance_test.measure1name %>
 </p>
 
-<div id="placeholder" style="width:600px;height:300px;"></div> 
+<div id="measure1graph" style="width:600px;height:300px;"></div> 
 <script type="text/javascript"> 
 $(function () {
     var d1 = <%= max_values(@performance_test_results, 1) %>;
- 
     var d2 = <%= avg_values(@performance_test_results, 1) %>;
- 
-    // a null signifies separate line segments
     var d3 = <%= min_values(@performance_test_results, 1) %>;
     
-    $.plot($("#placeholder"), [ 
+    $.plot($("#measure1graph"), [ 
+		{ label: "Max", data: d1},
+		{ label: "Avg", data:d2},
+		{ label: "Min", data:d3} 
+		], {
+		  series: {
+			lines: { show: true },
+			points: { show: true }
+		},
+		  xaxis: {
+			ticks: <%= tick_values(@performance_test_results) %>
+	      },
+	      legend: {
+		    position: "nw",
+		    margin: 0,
+		    noColumns: 6
+	      }	
+		}
+	);
+});
+
+$(function () {
+    var d1 = <%= max_values(@performance_test_results, 2) %>;
+    var d2 = <%= avg_values(@performance_test_results, 2) %>;
+    var d3 = <%= min_values(@performance_test_results, 2) %>;
+    
+    $.plot($("#measure2graph"), [ 
+		{ label: "Max", data: d1},
+		{ label: "Avg", data:d2},
+		{ label: "Min", data:d3} 
+		], {
+		  series: {
+			lines: { show: true },
+			points: { show: true }
+		},
+		  xaxis: {
+			ticks: <%= tick_values(@performance_test_results) %>
+	      },
+	      legend: {
+		    position: "nw",
+		    margin: 0,
+		    noColumns: 6
+	      }	
+		}
+	);
+});
+
+$(function () {
+    var d1 = <%= max_values(@performance_test_results, 3) %>;
+    var d2 = <%= avg_values(@performance_test_results, 3) %>;
+    var d3 = <%= min_values(@performance_test_results, 3) %>;
+    
+    $.plot($("#measure3graph"), [ 
 		{ label: "Max", data: d1},
 		{ label: "Avg", data:d2},
 		{ label: "Min", data:d3} 
@@ -54,7 +103,7 @@ $(function () {
 	<tbody>
 <% @performance_test_results.each do |performance_test_result| %>
   <tr>
-	<td><%= performance_test_result.date_run %></td>
+	<td><%= format_date_string performance_test_result.date_run %></td>
     <td><%= performance_test_result.measure1max %></td>
 	<td><%= performance_test_result.measure1min %></td>
     <td><%= performance_test_result.measure1avg %></td>
@@ -69,6 +118,7 @@ $(function () {
   <b>Measure 2:</b>
   <%= @performance_test.measure2name %>
 </p>
+<div id="measure2graph" style="width:600px;height:300px;"></div> 
 <table class="bvt_app_small_table">
  	<thead>
   <tr class="yellow">
@@ -81,13 +131,15 @@ $(function () {
 	</thead>
 	<tbody>
 <% @performance_test_results.each do |performance_test_result| %>
+  <% unless performance_test_result.measure2max == nil and performance_test_result.measure2min == nil and performance_test_result.measure2avg == nil %>
   <tr>
-	<td><%= performance_test_result.date_run %></td>
+	<td><%= format_date_string performance_test_result.date_run %></td>
     <td><%= performance_test_result.measure2max %></td>
 	<td><%= performance_test_result.measure2min %></td>
     <td><%= performance_test_result.measure2avg %></td>
     <td><%= link_to 'Details', performance_test_result %></td>
   </tr>
+  <% end %>
 <% end %>
 	</tbody>
 </table>
@@ -95,9 +147,10 @@ $(function () {
 
 <% unless @performance_test.measure3name == nil or @performance_test.measure3name.strip == "" %>
 <p>
-  <b>Measure 2:</b>
+  <b>Measure 3:</b>
   <%= @performance_test.measure3name %>
 </p>
+<div id="measure3graph" style="width:600px;height:300px;"></div> 
 <table class="bvt_app_small_table">
  	<thead>
   <tr class="yellow">
@@ -110,21 +163,24 @@ $(function () {
 	</thead>
 	<tbody>
 <% @performance_test_results.each do |performance_test_result| %>
+   <% unless performance_test_result.measure3max == nil and performance_test_result.measure3min == nil and performance_test_result.measure3avg == nil %>
   <tr>
-	<td><%= performance_test_result.date_run %></td>
+	<td><%= format_date_string performance_test_result.date_run %></td>
     <td><%= performance_test_result.measure3max %></td>
 	<td><%= performance_test_result.measure3min %></td>
     <td><%= performance_test_result.measure3avg %></td>
     <td><%= link_to 'Details', performance_test_result %></td>
   </tr>
+  <% end %>
 <% end %>
 	</tbody>
 </table>
 <% end %>
 
 <% unless @performance_test.measure4name == nil or @performance_test.measure4name.strip == "" %>
+<div id="measure4graph" style="width:600px;height:300px;"></div> 
 <p>
-  <b>Measure 2:</b>
+  <b>Measure 4:</b>
   <%= @performance_test.measure4name %>
 </p>
 <table class="bvt_app_small_table">
@@ -139,21 +195,24 @@ $(function () {
 	</thead>
 	<tbody>
 <% @performance_test_results.each do |performance_test_result| %>
+  <% unless performance_test_result.measure4max == nil and performance_test_result.measure4min == nil and performance_test_result.measure4avg == nil %>
   <tr>
-	<td><%= performance_test_result.date_run %></td>
+	<td><%= format_date_string performance_test_result.date_run %></td>
     <td><%= performance_test_result.measure4max %></td>
 	<td><%= performance_test_result.measure4min %></td>
     <td><%= performance_test_result.measure4avg %></td>
     <td><%= link_to 'Details', performance_test_result %></td>
   </tr>
+  <% end %>
 <% end %>
 	</tbody>
 </table>
 <% end %>
 
 <% unless @performance_test.measure5name == nil or @performance_test.measure5name.strip == "" %>
+<div id="measure5graph" style="width:600px;height:300px;"></div> 
 <p>
-  <b>Measure 2:</b>
+  <b>Measure 5:</b>
   <%= @performance_test.measure5name %>
 </p>
 <table class="bvt_app_small_table">
@@ -168,13 +227,15 @@ $(function () {
 	</thead>
 	<tbody>
 <% @performance_test_results.each do |performance_test_result| %>
+  <% unless performance_test_result.measure5max == nil and performance_test_result.measure5min == nil and performance_test_result.measure5avg == nil %>
   <tr>
-	<td><%= performance_test_result.date_run %></td>
+	<td><%= format_date_string performance_test_result.date_run %></td>
     <td><%= performance_test_result.measure5max %></td>
 	<td><%= performance_test_result.measure5min %></td>
     <td><%= performance_test_result.measure5avg %></td>
     <td><%= link_to 'Details', performance_test_result %></td>
   </tr>
+  <% end %>
 <% end %>
 	</tbody>
 </table>

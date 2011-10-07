@@ -29,6 +29,10 @@ module ApplicationHelper
     content_for(:head) { stylesheet_link_tag(*files) }
   end
 
+  def format_date_string( date_string )
+     the_date = date_string.to_datetime
+     the_date.strftime( "%m/%d/%Y %H:%M")
+  end
   
   
 end

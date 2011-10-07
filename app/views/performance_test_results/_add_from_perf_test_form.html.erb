@@ -3,33 +3,48 @@
    <%= f.input :performance_test_id, :as => :hidden %>
    <%= f.input :date_run %>
   <div class="inputs">
-    <%= f.input :measure1max, :label => "#{@performance_test.measure1name} Max" %>
-    <%= f.input :measure1min, :label => "#{@performance_test.measure1name} Min"  %>
-    <%= f.input :measure1avg, :label => "#{@performance_test.measure1name} Avg"   %>
-    <%= f.input :measure1values, :label => "#{@performance_test.measure1name} Values" %>
+	<p>
+	<bold>Measure 1: <%= @performance_test.measure1name %></bold>
+	</p>
+    <%= f.input :measure1max, :label => "Measure 1 Max" %>
+    <%= f.input :measure1min, :label => "Measure 1 Min"  %>
+    <%= f.input :measure1avg, :label => "Measure 1 Avg"   %>
+    <%= f.input :measure1values, :label => "Measure 1 Values" %>
 <% unless @performance_test.measure2name == nil or @performance_test.measure2name.strip == "" %>
-    <%= f.input :measure2max, :label => "#{@performance_test.measure2name} Max" %>
-    <%= f.input :measure2min, :label => "#{@performance_test.measure2name} Min" %>
-    <%= f.input :measure2avg, :label => "#{@performance_test.measure2name} Avg"    %>
-    <%= f.input :measure2values, :label => "#{@performance_test.measure2name} Values" %>
+	<p>
+	<bold>Measure 2: <%= @performance_test.measure2name %></bold>
+	</p>
+    <%= f.input :measure2max, :label => "Measure 2 Max" %>
+    <%= f.input :measure2min, :label => "Measure 2 Min" %>
+    <%= f.input :measure2avg, :label => "Measure 2 Avg"    %>
+    <%= f.input :measure2values, :label => "Measure 2 Values" %>
 <% end %>
-<% unless @performance_test.measure2name == nil or @performance_test.measure2name.strip == "" %>
-    <%= f.input :measure3max, :label => "#{@performance_test.measure3name} Max" %>
-    <%= f.input :measure3min, :label => "#{@performance_test.measure3name} Min" %>
-    <%= f.input :measure3avg, :label => "#{@performance_test.measure3name} Avg"    %>
-    <%= f.input :measure3values, :label => "#{@performance_test.measure3name} Values" %>
+<% unless @performance_test.measure3name == nil or @performance_test.measure3name.strip == "" %>
+	<p>
+	<bold>Measure 3: <%= @performance_test.measure3name %></bold>
+	</p>
+    <%= f.input :measure3max, :label => "Measure 3 Max" %>
+    <%= f.input :measure3min, :label => "Measure 3 Min" %>
+    <%= f.input :measure3avg, :label => "Measure 3 Avg"    %>
+    <%= f.input :measure3values, :label => "Measure 3 Values" %>
 <% end %>
-<% unless @performance_test.measure2name == nil or @performance_test.measure2name.strip == "" %>
-    <%= f.input :measure4max, :label => "#{@performance_test.measure4name} Max" %>
-    <%= f.input :measure4min, :label => "#{@performance_test.measure4name} Min" %>
-    <%= f.input :measure4avg, :label => "#{@performance_test.measure4name} Avg"    %>
-    <%= f.input :measure4values, :label => "#{@performance_test.measure4name} Values" %>
+<% unless @performance_test.measure4name == nil or @performance_test.measure4name.strip == "" %>
+	<p>
+	<bold>Measure 4: <%= @performance_test.measure4name %></bold>
+	</p>
+    <%= f.input :measure4max, :label => "Measure 4 Max" %>
+    <%= f.input :measure4min, :label => "Measure 4 Min" %>
+    <%= f.input :measure4avg, :label => "Measure 4 Avg"    %>
+    <%= f.input :measure4values, :label => "Measure 4 Values" %>
 <% end %>
-<% unless @performance_test.measure2name == nil or @performance_test.measure2name.strip == "" %>
-    <%= f.input :measure5max, :label => "#{@performance_test.measure5name} Max" %>
-    <%= f.input :measure5min, :label => "#{@performance_test.measure5name} Min" %>
-  	<%= f.input :measure5avg, :label => "#{@performance_test.measure5name} Avg"    %>
-    <%= f.input :measure5values, :label => "#{@performance_test.measure5name} Values" %>
+<% unless @performance_test.measure5name == nil or @performance_test.measure5name.strip == "" %>
+	<p>
+	<bold>Measure 5: <%= @performance_test.measure5name %></bold>
+	</p>
+    <%= f.input :measure5max, :label => "Measure 5 Max" %>
+    <%= f.input :measure5min, :label => "Measure 5 Min" %>
+  	<%= f.input :measure5avg, :label => "Measure 5 Avg"    %>
+    <%= f.input :measure5values, :label => "Measure 5 Values" %>
 <% end %>
   </div>
 
