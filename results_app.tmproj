@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>app/helpers/performance_tests_helper.rb</string>
+	<string>app/controllers/performance_tests_controller.rb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -77,6 +77,20 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
+		<key>app/controllers/performance_test_results_controller.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>1</integer>
+				<key>line</key>
+				<integer>1</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>app/controllers/performance_tests_controller.rb</key>
 		<dict>
 			<key>caret</key>
@@ -84,7 +98,7 @@
 				<key>column</key>
 				<integer>0</integer>
 				<key>line</key>
-				<integer>0</integer>
+				<integer>1</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -113,34 +127,6 @@
 				<integer>31</integer>
 				<key>line</key>
 				<integer>40</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>app/helpers/performance_test_results_helper.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>0</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>app/helpers/performance_tests_helper.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>39</integer>
-				<key>line</key>
-				<integer>65</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -246,20 +232,6 @@
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
-		</dict>
-		<key>app/views/performance_tests/show.html.erb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>65</integer>
-				<key>line</key>
-				<integer>150</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>8</integer>
 		</dict>
 		<key>app/views/projects/_project.erb</key>
 		<dict>
@@ -462,21 +434,12 @@
 	</dict>
 	<key>openDocuments</key>
 	<array>
-		<string>app/views/users/_fields.html.erb</string>
-		<string>config/database.yml</string>
-		<string>app/views/performance_tests/show.html.erb</string>
-		<string>app/helpers/performance_test_results_helper.rb</string>
-		<string>app/views/performance_test_results/_add_from_perf_test_form.html.erb</string>
-		<string>app/assets/stylesheets/custom.css</string>
-		<string>app/views/test_results/_form.html.erb</string>
-		<string>app/helpers/performance_tests_helper.rb</string>
-		<string>config/routes.rb</string>
-		<string>app/views/users/new.html.erb</string>
-		<string>app/views/layouts/_header.html.erb</string>
+		<string>app/controllers/performance_test_results_controller.rb</string>
+		<string>app/controllers/performance_tests_controller.rb</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{2112, -83}, {1253, 937}}</string>
+	<string>{{2092, 17}, {1253, 937}}</string>
 </dict>
 </plist>
