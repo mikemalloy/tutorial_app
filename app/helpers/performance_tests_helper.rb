@@ -84,5 +84,34 @@ module PerformanceTestsHelper
     output += "]"
   end 
   
+  def create_chart_string( performance_test_results, index )
+    output = ""
+    output += "var d1 = " + max_values(performance_test_results, index) + ";"
+    output += "var d2 = " + avg_values(performance_test_results, index) + ";"
+    output += "var d3 = " + min_values(performance_test_results, index) + ";"
+    graph_name = '\"measure' + index.to_s + 'graph\"'
+    output += "$.plot($(" + graph_name + '), [ 
+  		{ label: \"Max\", data: d1},
+  		{ label: \"Avg\", data:d2},
+  		{ label: \"Min\", data:d3} 
+  		], {
+  		  series: {
+  			lines: { show: true },
+  			points: { show: true }
+  		},
+  		  xaxis: {
+  			ticks: ' + tick_values(performance_test_results) + '
+  	      },
+  	      legend: {
+  		    position: \"nw\",
+  		    margin: 0,
+  		    noColumns: 6
+  	      }	
+  		}
+  	);'
+    return output
+  end
+ 
+ 
    
 end

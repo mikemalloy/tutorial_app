@@ -1,5 +1,5 @@
 class PerformanceTestResultsController < ApplicationController
-  before_filter :authenticate
+ 
   # GET /performance_test_results
   # GET /performance_test_results.json
   def index

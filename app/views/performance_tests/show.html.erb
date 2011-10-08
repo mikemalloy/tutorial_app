@@ -10,12 +10,13 @@
 
 <div id="measure1graph" style="width:600px;height:300px;"></div> 
 <script type="text/javascript"> 
+
 $(function () {
-    var d1 = <%= max_values(@performance_test_results, 1) %>;
-    var d2 = <%= avg_values(@performance_test_results, 1) %>;
-    var d3 = <%= min_values(@performance_test_results, 1) %>;
-    
-    $.plot($("#measure1graph"), [ 
+   	var d1 = <%= max_values(@performance_test_results, 1) %>;
+	var d2 = <%= avg_values(@performance_test_results, 1) %>;
+	var d3 = <%= min_values(@performance_test_results, 1) %>;
+
+	$.plot($("#measure1graph"), [ 
 		{ label: "Max", data: d1},
 		{ label: "Avg", data:d2},
 		{ label: "Min", data:d3} 
@@ -35,6 +36,7 @@ $(function () {
 		}
 	);
 });
+
 
 $(function () {
     var d1 = <%= max_values(@performance_test_results, 2) %>;
@@ -87,6 +89,58 @@ $(function () {
 		}
 	);
 });
+
+$(function () {
+    var d1 = <%= max_values(@performance_test_results, 4) %>;
+    var d2 = <%= avg_values(@performance_test_results, 4) %>;
+    var d3 = <%= min_values(@performance_test_results, 4) %>;
+    
+    $.plot($("#measure4graph"), [ 
+		{ label: "Max", data: d1},
+		{ label: "Avg", data:d2},
+		{ label: "Min", data:d3} 
+		], {
+		  series: {
+			lines: { show: true },
+			points: { show: true }
+		},
+		  xaxis: {
+			ticks: <%= tick_values(@performance_test_results) %>
+	      },
+	      legend: {
+		    position: "nw",
+		    margin: 0,
+		    noColumns: 6
+	      }	
+		}
+	);
+});
+
+$(function () {
+    var d1 = <%= max_values(@performance_test_results, 5) %>;
+    var d2 = <%= avg_values(@performance_test_results, 5) %>;
+    var d3 = <%= min_values(@performance_test_results, 5) %>;
+    
+    $.plot($("#measure5graph"), [ 
+		{ label: "Max", data: d1},
+		{ label: "Avg", data:d2},
+		{ label: "Min", data:d3} 
+		], {
+		  series: {
+			lines: { show: true },
+			points: { show: true }
+		},
+		  xaxis: {
+			ticks: <%= tick_values(@performance_test_results) %>
+	      },
+	      legend: {
+		    position: "nw",
+		    margin: 0,
+		    noColumns: 6
+	      }	
+		}
+	);
+});
 </script> 
 
 
@@ -114,6 +168,7 @@ $(function () {
 </table>
 
 <% unless @performance_test.measure2name == nil or @performance_test.measure2name.strip == "" %>
+<p> </p>
 <p>
   <b>Measure 2:</b>
   <%= @performance_test.measure2name %>
@@ -146,6 +201,7 @@ $(function () {
 <% end %>
 
 <% unless @performance_test.measure3name == nil or @performance_test.measure3name.strip == "" %>
+<p> </p>
 <p>
   <b>Measure 3:</b>
   <%= @performance_test.measure3name %>
@@ -179,6 +235,7 @@ $(function () {
 
 <% unless @performance_test.measure4name == nil or @performance_test.measure4name.strip == "" %>
 <div id="measure4graph" style="width:600px;height:300px;"></div> 
+<p> </p>
 <p>
   <b>Measure 4:</b>
   <%= @performance_test.measure4name %>
@@ -211,6 +268,7 @@ $(function () {
 
 <% unless @performance_test.measure5name == nil or @performance_test.measure5name.strip == "" %>
 <div id="measure5graph" style="width:600px;height:300px;"></div> 
+<p> </p>
 <p>
   <b>Measure 5:</b>
   <%= @performance_test.measure5name %>
