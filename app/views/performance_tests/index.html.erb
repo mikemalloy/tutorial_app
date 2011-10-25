@@ -9,6 +9,7 @@
     <th></th>
     <th></th>
 	<th></th>
+	<th></th>
   </tr>
 	</thead>
 	<tbody>
@@ -18,6 +19,9 @@
 		    <td><%= performance_test.name %></td>
 			<td><%= link_to 'Edit', edit_performance_test_path(performance_test)  %>
 		    <td><%= link_to 'Show',  performance_test %></td>
+			<td><% unless performance_test.uses_levels.blank? %>
+				<%= link_to 'Show Levels', show_levels_performance_test_path(performance_test) %>
+				<% end %>
 		    <td><%= button_to 'Destroy', performance_test, :confirm => 'Are you sure?', :method => :delete %></td>
 		  </tr>
 		<% end %>

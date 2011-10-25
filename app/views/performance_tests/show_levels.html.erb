@@ -1,0 +1,417 @@
+<script type="text/javascript"> 
+Highcharts.setOptions({
+    colors: ['blue','#32cd32', '#ffa500', '#FF4500']
+});
+
+var chart1, chart2, chart3, chart4, chart5, chart6;
+
+$(document).ready(function() {
+	chart1 = new Highcharts.Chart({
+	chart: {
+		renderTo: 'measure1graph',
+		defaultSeriesType: 'line'
+	},
+	title: {
+		text: '<%= @performance_test.measure1name %>'
+	},
+	xAxis: {
+		categories: <%= date_values(@performance_test_results) %>,
+		labels: { rotation: -45, align: 'right'}	
+	},
+	yAxis: {
+		min: 0,
+		title: {
+			text: 'Percent of Measurements'
+		}
+	},
+	legend: {
+		backgroundColor: '#FFFFFF',
+		reversed: true
+	},
+	tooltip: {
+		formatter: function() {
+			return ''+
+				 this.series.name +': '+ this.y +'%';
+		}
+	},
+	plotOptions: {
+
+	},
+       series: [{
+					name: '< <%= @performance_test.level1_max.to_s %> sec',
+							data: <%= index_values( @measure1_results, 0 ) %>
+						}, {
+							name: '<%= @performance_test.level1_max.to_s %>-<%= @performance_test.level2_max.to_s %> sec',
+							data: <%= index_values( @measure1_results, 1 ) %>
+						}, {
+							name: '<%= @performance_test.level2_max.to_s %>-<%= @performance_test.level3_max.to_s %> sec',
+							data: <%= index_values( @measure1_results, 2 ) %>
+						}	, {
+								name: '> <%= @performance_test.level3_max.to_s %> sec',
+								data: <%= index_values( @measure1_results, 3 ) %>
+						}]		
+	 
+});
+
+
+});
+
+<% unless is_empty?(@performance_test.measure2name) %>
+
+$(document).ready(function() {
+	chart2 = new Highcharts.Chart({
+	chart: {
+		renderTo: 'measure2graph',
+		defaultSeriesType: 'line'
+	},
+	title: {
+		text: '<%= @performance_test.measure2name %>'
+	},
+	xAxis: {
+		categories: <%= date_values(@performance_test_results) %>,
+		labels: { rotation: -45, align: 'right'}
+	},
+	yAxis: {
+		min: 0,
+		title: {
+			text: 'Percent of Measurements'
+		}
+	},
+	legend: {
+		backgroundColor: '#FFFFFF',
+		reversed: true
+	},
+	tooltip: {
+		formatter: function() {
+			return ''+
+				 this.series.name +': '+ this.y +'%';
+		}
+	},
+	plotOptions: {
+		
+	},
+       series: [{
+					name: '< <%= @performance_test.level1_max.to_s %> sec',
+							data: <%= index_values( @measure2_results, 0 ) %>
+						}, {
+							name: '<%= @performance_test.level1_max.to_s %>-<%= @performance_test.level2_max.to_s %> sec',
+							data: <%= index_values( @measure2_results, 1 ) %>
+						}, {
+							name: '<%= @performance_test.level2_max.to_s %>-<%= @performance_test.level3_max.to_s %> sec',
+							data: <%= index_values( @measure2_results, 2 ) %>
+						}	, {
+								name: '> <%= @performance_test.level3_max.to_s %> sec',
+								data: <%= index_values( @measure2_results, 3 ) %>
+						}]		
+	 
+});
+
+
+});
+
+<% end %>
+
+<% unless is_empty?(@performance_test.measure3name) %>
+
+$(document).ready(function() {
+	chart6 = new Highcharts.Chart({
+	chart: {
+		renderTo: 'measure6graph',
+		defaultSeriesType: 'line'
+	},
+	title: {
+		text: '<%= @performance_test.measure3name %>'
+	},
+	xAxis: {
+		categories: <%= date_values(@performance_test_results) %>,
+		labels: { rotation: -45, align: 'right'}
+	},
+	yAxis: {
+		min: 0,
+		title: {
+			text: 'Percent of Measurements'
+		}
+	},
+	legend: {
+		backgroundColor: '#FFFFFF',
+		reversed: true
+	},
+	tooltip: {
+		formatter: function() {
+			return ''+
+				 this.series.name +': '+ this.y +'%';
+		}
+	},
+	plotOptions: {
+		
+	},
+       series: [{
+					name: '< <%= @performance_test.level1_max.to_s %> sec',
+							data: <%= index_values( @measure3_results, 0 ) %>
+						}, {
+							name: '<%= @performance_test.level1_max.to_s %>-<%= @performance_test.level2_max.to_s %> sec',
+							data: <%= index_values( @measure3_results, 1 ) %>
+						}, {
+							name: '<%= @performance_test.level2_max.to_s %>-<%= @performance_test.level3_max.to_s %> sec',
+							data: <%= index_values( @measure3_results, 2 ) %>
+						}	, {
+								name: '> <%= @performance_test.level3_max.to_s %> sec',
+								data: <%= index_values( @measure3_results, 3 ) %>
+						}]		
+	 
+});
+
+
+});
+
+<% end %>
+
+jQuery(document).ready(function() {
+	chart3 = new Highcharts.Chart({
+		chart: {
+			renderTo: 'measure3graph',
+			defaultSeriesType: 'line'
+		},
+		title: {
+			text: 'Historical Median Values',
+			x: -20 //center
+		},
+		xAxis: {
+			categories: <%= date_values(@performance_test_results) %>,
+			labels: { rotation: -45, align: 'right'}
+		},
+		yAxis: {
+			title: {
+				text: 'Load Time (seconds)'
+			},
+			plotLines: [{
+				value: 0,
+				width: 1,
+				color: '#808080'
+			}]
+		},
+		tooltip: {
+			formatter: function() {
+	                return '<b>'+ this.series.name +'</b><br/>'+
+					this.x +': '+ this.y +' sec';
+			}
+		},
+		legend: {
+			backgroundColor: '#FFFFFF',
+			reversed: true
+		},
+		series: [{
+			name: '<%= @performance_test.measure1name %>',
+			data: <%= median_values( @performance_test_results, 1 ) %>
+		} <% unless is_empty?(@performance_test.measure2name) %> , {
+			name: '<%= @performance_test.measure2name %>',
+			data: <%= median_values( @performance_test_results, 2 ) %>
+		} 	<% end %>
+		<% unless is_empty?(@performance_test.measure3name) %> , {
+			name: '<%= @performance_test.measure3name %>',
+			data: <%= median_values( @performance_test_results, 3 ) %>
+		} <% end %>
+		]
+	});
+	
+	
+});
+
+$(document).ready(function() {
+	chart4 = new Highcharts.Chart({
+	chart: {
+		renderTo: 'measure4graph',
+		defaultSeriesType: 'column'
+	},
+	title: {
+		text: ''
+	},
+	xAxis: {
+		categories: ['< <%= @performance_test.level1_max.to_s %> sec', '<%= @performance_test.level1_max.to_s %>-<%= @performance_test.level2_max.to_s %> sec','<%= @performance_test.level2_max.to_s %>-<%= @performance_test.level3_max.to_s %> sec','> <%= @performance_test.level3_max.to_s %> sec']
+	},
+	yAxis: {
+		min: 0,
+		title: {
+			text: 'Percent of Measurements'
+		}
+	},
+	legend: {
+		backgroundColor: '#FFFFFF',
+		reversed: true
+	},
+	tooltip: {
+		formatter: function() {
+			return ''+
+				 this.series.name +': '+ this.y +'%';
+		}
+	},
+	plotOptions: {
+		series: {
+			stacking: 'normal'
+		}
+	},
+       series: [{	name: 'Measurement Timings',
+					data: <%= array_values( @measure1_results[@measure1_results.length - 1] ) %> }]		
+
+});
+});	
+
+<% unless is_empty?(@performance_test.measure2name) %>
+$(document).ready(function() {
+	chart5 = new Highcharts.Chart({
+	chart: {
+		renderTo: 'measure5graph',
+		defaultSeriesType: 'column'
+	},
+	title: {
+		text: ''
+	},
+	xAxis: {
+		categories: ['< <%= @performance_test.level1_max.to_s %> sec', '<%= @performance_test.level1_max.to_s %>-<%= @performance_test.level2_max.to_s %> sec','<%= @performance_test.level2_max.to_s %>-<%= @performance_test.level3_max.to_s %> sec','> <%= @performance_test.level3_max.to_s %> sec']
+	},
+	yAxis: {
+		min: 0,
+		title: {
+			text: 'Percent of Measurements'
+		}
+	},
+	legend: {
+		backgroundColor: '#FFFFFF',
+		reversed: true
+	},
+	tooltip: {
+		formatter: function() {
+			return ''+
+				 this.series.name +': '+ this.y +'%';
+		}
+	},
+	plotOptions: {
+		series: {
+			stacking: 'normal'
+		}
+	},
+       series: [{	name: 'Measurement Timings',
+					data: <%= array_values( @measure2_results[@measure2_results.length - 1] ) %> }]		
+
+});
+});
+<% end %>
+<% unless is_empty?(@performance_test.measure3name) %>
+$(document).ready(function() {
+	chart5 = new Highcharts.Chart({
+	chart: {
+		renderTo: 'measure7graph',
+		defaultSeriesType: 'column'
+	},
+	title: {
+		text: ''
+	},
+	xAxis: {
+		categories: ['< <%= @performance_test.level1_max.to_s %> sec', '<%= @performance_test.level1_max.to_s %>-<%= @performance_test.level2_max.to_s %> sec','<%= @performance_test.level2_max.to_s %>-<%= @performance_test.level3_max.to_s %> sec','> <%= @performance_test.level3_max.to_s %> sec']
+	},
+	yAxis: {
+		min: 0,
+		title: {
+			text: 'Percent of Measurements'
+		}
+	},
+	legend: {
+		backgroundColor: '#FFFFFF',
+		reversed: true
+	},
+	tooltip: {
+		formatter: function() {
+			return ''+
+				 this.series.name +': '+ this.y +'%';
+		}
+	},
+	plotOptions: {
+		series: {
+			stacking: 'normal'
+		}
+	},
+       series: [{	name: 'Measurement Timings',
+					data: <%= array_values( @measure3_results[@measure3_results.length - 1] ) %> }]		
+
+});
+});
+<% end %>
+
+
+</script>
+
+
+<p>
+<h2>
+  <b>Performance Test Name:</b>
+  <%= @performance_test.name %>
+</h2>
+</p>
+<p>&nbsp;</p>
+<p>
+  <b>Latest Result:</b>
+   <%= @performance_test.measure1name %>
+</p>
+
+<div id="measure4graph" style="width:600px;height:300px;"></div>
+
+<% unless is_empty?(@performance_test.measure2name) %>
+<p>&nbsp;</p>
+<p>
+  <b>Latest Result:</b>
+   <%= @performance_test.measure2name %>
+</p>
+
+<div id="measure5graph" style="width:600px;height:300px;"></div>
+<% end %>
+
+<% unless is_empty?(@performance_test.measure3name) %>
+<p>&nbsp;</p>
+<p>
+  <b>Latest Result:</b>
+   <%= @performance_test.measure3name %>
+</p>
+
+<div id="measure7graph" style="width:600px;height:300px;"></div>
+<% end %>
+
+<p>&nbsp;</p>
+<p>
+  <b>Measure1:</b>
+  <%= @performance_test.measure1name %>
+</p>
+
+<div id="measure1graph" style="width:600px;height:300px;"></div> 
+
+<% unless is_empty?(@performance_test.measure2name) %>
+<p>&nbsp;</p>
+<p>
+  <b>Measure2:</b>
+  <%= @performance_test.measure2name %>
+</p>
+<div id="measure2graph" style="width:600px;height:300px;"></div> 
+<% end %>
+
+<% unless is_empty?(@performance_test.measure3name) %>
+<p>&nbsp;</p>
+<p>
+  <b>Measure3:</b>
+  <%= @performance_test.measure3name %>
+</p>
+
+<div id="measure6graph" style="width:600px;height:300px;"></div> 
+<% end %>
+
+
+<p>&nbsp;</p>
+<p>
+  <b>Historical Median Values:</b>
+</p>
+
+<div id="measure3graph" style="width:600px;height:300px;"></div>
+
+
+
+
+<p>&nbsp;</p>
+<p>

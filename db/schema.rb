@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110925224936) do
+ActiveRecord::Schema.define(:version => 20111014173022) do
 
   create_table "email_list_items", :force => true do |t|
     t.string   "name"
@@ -62,6 +62,12 @@ ActiveRecord::Schema.define(:version => 20110925224936) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "measure5avg"
+    t.float    "measure1median"
+    t.float    "measure2median"
+    t.float    "measure3median"
+    t.float    "measure4median"
+    t.float    "measure5median"
+    t.string   "build"
   end
 
   create_table "performance_tests", :force => true do |t|
@@ -79,6 +85,10 @@ ActiveRecord::Schema.define(:version => 20110925224936) do
     t.text     "measure3desc"
     t.text     "measure4desc"
     t.text     "measure5desc"
+    t.boolean  "uses_levels"
+    t.float    "level1_max"
+    t.float    "level2_max"
+    t.float    "level3_max"
   end
 
   create_table "projects", :force => true do |t|

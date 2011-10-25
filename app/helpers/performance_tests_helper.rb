@@ -3,9 +3,6 @@ module PerformanceTestsHelper
     output = "["
     i = 0
     performance_test_results.each do |ptr|
-      unless i == 0
-        output += ","
-      end
       if measure == 1 
         output += "," unless i == 0 or ptr.measure1avg == nil
         output += "[#{i},#{ptr.measure1avg}]" if ptr.measure1avg != nil
@@ -93,6 +90,68 @@ module PerformanceTestsHelper
     output += "]"
   end 
   
+  def index_values( array, index )
+    output = "["
+    i=0
+    array.each do |item|
+      output += "," unless i == 0
+      output += "#{item[index]}" unless item[index] == nil
+      i+=1
+    end
+    output += "]"
+  end
   
+  def date_values( performance_tests )
+    output = '['
+    i = 0
+    performance_tests.each do |ptr|
+      date_run = ptr.date_run.to_datetime
+      formatted_date_string = date_run.strftime( "%m/%d/%Y")
+      output += "," unless i == 0
+      output += "\'" + formatted_date_string + "(#{ptr.build})" + "\'"
+      i+=1
+    end
+    output += ']'
+  end
+  
+  def median_values( performance_tests, index )
+    output = '['
+    i = 0
+    performance_tests.each do |ptr|
+      output += "," unless i == 0
+      if index == 1
+        output += ptr.measure1median.to_s
+      elsif index == 2 
+        output += ptr.measure2median.to_s
+      elsif index == 3
+        output += ptr.measure3median.to_s
+      elsif index == 4
+        output += ptr.measure4median.to_s
+      elsif index == 5
+        output += ptr.measure5median.to_s
+      end
+      i+=1
+    end
+    output += ']'
+  end      
+  
+  def array_values( array )
+    output = '['
+    i = 0
+    array.each do |item|
+      output += ',' unless i == 0
+      output += item.to_s
+      i += 1
+    end
+    output += ']'
+  end
+  
+  def is_empty? (string )
+    if string == nil or string.strip == ""
+      return true
+    else
+      return false
+    end
+  end
    
 end

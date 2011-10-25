@@ -11,12 +11,13 @@
 <div id="measure1graph" style="width:600px;height:300px;"></div> 
 <script type="text/javascript"> 
 
+<% { "1" => 1, "2" => 2, "3" => 3, "4" => 4, "5" => 5 }.each do |name, index| %>
 $(function () {
-   	var d1 = <%= max_values(@performance_test_results, 1) %>;
-	var d2 = <%= avg_values(@performance_test_results, 1) %>;
-	var d3 = <%= min_values(@performance_test_results, 1) %>;
+   	var d1 = <%= max_values(@performance_test_results, index ) %>;
+	var d2 = <%= avg_values(@performance_test_results, index ) %>;
+	var d3 = <%= min_values(@performance_test_results, index ) %>;
 
-	$.plot($("#measure1graph"), [ 
+	$.plot($("#measure<%= name %>graph"), [ 
 		{ label: "Max", data: d1},
 		{ label: "Avg", data:d2},
 		{ label: "Min", data:d3} 
@@ -37,110 +38,9 @@ $(function () {
 	);
 });
 
+<% end %>
 
-$(function () {
-    var d1 = <%= max_values(@performance_test_results, 2) %>;
-    var d2 = <%= avg_values(@performance_test_results, 2) %>;
-    var d3 = <%= min_values(@performance_test_results, 2) %>;
-    
-    $.plot($("#measure2graph"), [ 
-		{ label: "Max", data: d1},
-		{ label: "Avg", data:d2},
-		{ label: "Min", data:d3} 
-		], {
-		  series: {
-			lines: { show: true },
-			points: { show: true }
-		},
-		  xaxis: {
-			ticks: <%= tick_values(@performance_test_results) %>
-	      },
-	      legend: {
-		    position: "nw",
-		    margin: 0,
-		    noColumns: 6
-	      }	
-		}
-	);
-});
 
-$(function () {
-    var d1 = <%= max_values(@performance_test_results, 3) %>;
-    var d2 = <%= avg_values(@performance_test_results, 3) %>;
-    var d3 = <%= min_values(@performance_test_results, 3) %>;
-    
-    $.plot($("#measure3graph"), [ 
-		{ label: "Max", data: d1},
-		{ label: "Avg", data:d2},
-		{ label: "Min", data:d3} 
-		], {
-		  series: {
-			lines: { show: true },
-			points: { show: true }
-		},
-		  xaxis: {
-			ticks: <%= tick_values(@performance_test_results) %>
-	      },
-	      legend: {
-		    position: "nw",
-		    margin: 0,
-		    noColumns: 6
-	      }	
-		}
-	);
-});
-
-$(function () {
-    var d1 = <%= max_values(@performance_test_results, 4) %>;
-    var d2 = <%= avg_values(@performance_test_results, 4) %>;
-    var d3 = <%= min_values(@performance_test_results, 4) %>;
-    
-    $.plot($("#measure4graph"), [ 
-		{ label: "Max", data: d1},
-		{ label: "Avg", data:d2},
-		{ label: "Min", data:d3} 
-		], {
-		  series: {
-			lines: { show: true },
-			points: { show: true }
-		},
-		  xaxis: {
-			ticks: <%= tick_values(@performance_test_results) %>
-	      },
-	      legend: {
-		    position: "nw",
-		    margin: 0,
-		    noColumns: 6
-	      }	
-		}
-	);
-});
-
-$(function () {
-    var d1 = <%= max_values(@performance_test_results, 5) %>;
-    var d2 = <%= avg_values(@performance_test_results, 5) %>;
-    var d3 = <%= min_values(@performance_test_results, 5) %>;
-    
-    $.plot($("#measure5graph"), [ 
-		{ label: "Max", data: d1},
-		{ label: "Avg", data:d2},
-		{ label: "Min", data:d3} 
-		], {
-		  series: {
-			lines: { show: true },
-			points: { show: true }
-		},
-		  xaxis: {
-			ticks: <%= tick_values(@performance_test_results) %>
-	      },
-	      legend: {
-		    position: "nw",
-		    margin: 0,
-		    noColumns: 6
-	      }	
-		}
-	);
-});
 </script> 
 
 
@@ -148,6 +48,7 @@ $(function () {
  	<thead>
   <tr class="yellow">
     <th>Date</th>
+	<th>Build</th>
     <th>Max</th>
     <th>Min</th>
 	<th>Average</th>
@@ -158,6 +59,7 @@ $(function () {
 <% @performance_test_results.each do |performance_test_result| %>
   <tr>
 	<td><%= format_date_string performance_test_result.date_run %></td>
+	<td><%= performance_test_result.build %>
     <td><%= performance_test_result.measure1max %></td>
 	<td><%= performance_test_result.measure1min %></td>
     <td><%= performance_test_result.measure1avg %></td>
@@ -178,6 +80,7 @@ $(function () {
  	<thead>
   <tr class="yellow">
     <th>Date</th>
+	<th>Build</th>
     <th>Max</th>
     <th>Min</th>
 	<th>Average</th>
@@ -189,6 +92,7 @@ $(function () {
   <% unless performance_test_result.measure2max == nil and performance_test_result.measure2min == nil and performance_test_result.measure2avg == nil %>
   <tr>
 	<td><%= format_date_string performance_test_result.date_run %></td>
+	<td><%= performance_test_result.build %>
     <td><%= performance_test_result.measure2max %></td>
 	<td><%= performance_test_result.measure2min %></td>
     <td><%= performance_test_result.measure2avg %></td>
@@ -211,6 +115,7 @@ $(function () {
  	<thead>
   <tr class="yellow">
     <th>Date</th>
+	<th>Build</th>
     <th>Max</th>
     <th>Min</th>
 	<th>Average</th>
@@ -222,6 +127,7 @@ $(function () {
    <% unless performance_test_result.measure3max == nil and performance_test_result.measure3min == nil and performance_test_result.measure3avg == nil %>
   <tr>
 	<td><%= format_date_string performance_test_result.date_run %></td>
+	<td><%= performance_test_result.build %>
     <td><%= performance_test_result.measure3max %></td>
 	<td><%= performance_test_result.measure3min %></td>
     <td><%= performance_test_result.measure3avg %></td>
@@ -244,6 +150,7 @@ $(function () {
  	<thead>
   <tr class="yellow">
     <th>Date</th>
+	<th>Build</th>
     <th>Max</th>
     <th>Min</th>
 	<th>Average</th>
@@ -255,6 +162,7 @@ $(function () {
   <% unless performance_test_result.measure4max == nil and performance_test_result.measure4min == nil and performance_test_result.measure4avg == nil %>
   <tr>
 	<td><%= format_date_string performance_test_result.date_run %></td>
+	<td><%= performance_test_result.build %>
     <td><%= performance_test_result.measure4max %></td>
 	<td><%= performance_test_result.measure4min %></td>
     <td><%= performance_test_result.measure4avg %></td>
@@ -277,6 +185,7 @@ $(function () {
  	<thead>
   <tr class="yellow">
     <th>Date</th>
+	<th>Build</th>
     <th>Max</th>
     <th>Min</th>
 	<th>Average</th>
@@ -288,6 +197,7 @@ $(function () {
   <% unless performance_test_result.measure5max == nil and performance_test_result.measure5min == nil and performance_test_result.measure5avg == nil %>
   <tr>
 	<td><%= format_date_string performance_test_result.date_run %></td>
+	<td><%= performance_test_result.build %>
     <td><%= performance_test_result.measure5max %></td>
 	<td><%= performance_test_result.measure5min %></td>
     <td><%= performance_test_result.measure5avg %></td>

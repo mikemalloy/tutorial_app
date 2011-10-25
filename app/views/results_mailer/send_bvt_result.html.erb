@@ -1,5 +1,7 @@
 <h1><%= @test_result.test_suite.suite_type %> Results for project <%= @test_result.project.name %></h1>
-
+<p>
+Test Name: <%= @test_result.test_suite.name %>
+</p>
 
 Date Run: <%= @test_result.date_run %><br />
 Result: <%= @test_result.result %><br />	 

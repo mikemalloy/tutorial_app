@@ -6,22 +6,28 @@
     <th>Measure1max</th>
     <th>Measure1min</th>
     <th>Measure1avg</th>
+	<th>Measure1 Median</th>
     <th>Measure1values</th>
     <th>Measure2max</th>
     <th>Measure2min</th>
     <th>Measure2avg</th>
+	<th>Measure2 Median</th>
     <th>Measure2values</th>
     <th>Measure3max</th>
     <th>Measure3min</th>
     <th>Measure3avg</th>
+	<th>Measure 3 Median</th>
     <th>Measure3values</th>
     <th>Measure4max</th>
     <th>Measure4min</th>
     <th>Measure4avg</th>
+	<th>Measure 4 Median</th>
     <th>Measure4values</th>
     <th>Measure5max</th>
     <th>Measure5min</th>
+	<th>Measure 5 Median</th>
     <th>Measure5values</th>
+	<th>Build</th>
     <th></th>
     <th></th>
     <th></th>
@@ -33,22 +39,28 @@
     <td><%= performance_test_result.measure1max %></td>
     <td><%= performance_test_result.measure1min %></td>
     <td><%= performance_test_result.measure1avg %></td>
+	<td><%= performance_test_result.measure1median %></td>
     <td><%= performance_test_result.measure1values %></td>
     <td><%= performance_test_result.measure2max %></td>
     <td><%= performance_test_result.measure2min %></td>
     <td><%= performance_test_result.measure2avg %></td>
+	<td><%= performance_test_result.measure2median %></td>
     <td><%= performance_test_result.measure2values %></td>
     <td><%= performance_test_result.measure3max %></td>
     <td><%= performance_test_result.measure3min %></td>
     <td><%= performance_test_result.measure3avg %></td>
+	<td><%= performance_test_result.measure3median %></td>
     <td><%= performance_test_result.measure3values %></td>
     <td><%= performance_test_result.measure4max %></td>
     <td><%= performance_test_result.measure4min %></td>
     <td><%= performance_test_result.measure4avg %></td>
+	<td><%= performance_test_result.measure4median %></td>
     <td><%= performance_test_result.measure4values %></td>
     <td><%= performance_test_result.measure5max %></td>
     <td><%= performance_test_result.measure5min %></td>
+	<td><%= performance_test_result.measure5median %></td>
     <td><%= performance_test_result.measure5values %></td>
+	<td><%= performance_test_result.build %>
     <td><%= link_to 'Show', performance_test_result %></td>
     <td><%= link_to 'Edit', edit_performance_test_result_path(performance_test_result) %></td>
     <td><%= link_to 'Destroy', performance_test_result, :confirm => 'Are you sure?', :method => :delete %></td>

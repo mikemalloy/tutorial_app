@@ -6,6 +6,9 @@ TutorialApp::Application.routes.draw do
     member do
       put 'add_test_result'
     end
+    member do
+      get 'show_levels'
+    end
   end
 
   resources :test_suites
