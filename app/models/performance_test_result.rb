@@ -8,4 +8,8 @@ class PerformanceTestResult < ActiveRecord::Base
     where( "performance_test_id = ?", performance_test_id ).order( "date_run desc").limit(10).reverse
   end
   
+  def PerformanceTestResult.show_query( performance_test_id )
+    where( "performance_test_id = ?", performance_test_id ).order( "date_run desc").reverse
+  end
+  
 end

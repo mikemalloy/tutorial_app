@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>app/views/performance_test_results/index.html.erb</string>
+	<string>app/controllers/performance_tests_controller.rb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -26,9 +26,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>18</integer>
+				<integer>10</integer>
 				<key>line</key>
-				<integer>14</integer>
+				<integer>15</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -82,14 +82,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>126</integer>
+				<integer>84</integer>
 				<key>line</key>
-				<integer>39</integer>
+				<integer>36</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>89</integer>
+			<integer>34</integer>
 		</dict>
 		<key>app/controllers/projects_controller.rb</key>
 		<dict>
@@ -99,20 +99,6 @@
 				<integer>62</integer>
 				<key>line</key>
 				<integer>9</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>app/controllers/test_results_controller.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>31</integer>
-				<key>line</key>
-				<integer>40</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -147,6 +133,20 @@
 			<key>firstVisibleLine</key>
 			<integer>17</integer>
 		</dict>
+		<key>app/models/performance_test_result.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>83</integer>
+				<key>line</key>
+				<integer>11</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>app/models/user.rb</key>
 		<dict>
 			<key>caret</key>
@@ -161,19 +161,19 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>app/views/performance_test_results/index.html.erb</key>
+		<key>app/views/performance_test_results/_add_from_perf_test_form.html.erb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>39</integer>
+				<integer>91</integer>
 				<key>line</key>
-				<integer>62</integer>
+				<integer>4</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>21</integer>
+			<integer>10</integer>
 		</dict>
 		<key>app/views/performance_test_results/show.html.erb</key>
 		<dict>
@@ -189,33 +189,35 @@
 			<key>firstVisibleLine</key>
 			<integer>15</integer>
 		</dict>
-		<key>app/views/performance_tests/_form.html.erb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>20</integer>
-				<key>line</key>
-				<integer>14</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
 		<key>app/views/performance_tests/show.html.erb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>16</integer>
+				<integer>84</integer>
 				<key>line</key>
-				<integer>189</integer>
+				<integer>243</integer>
 			</dict>
+			<key>columnSelection</key>
+			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>162</integer>
+			<integer>194</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>31</integer>
+				<key>line</key>
+				<integer>243</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>84</integer>
+				<key>line</key>
+				<integer>243</integer>
+			</dict>
 		</dict>
 		<key>app/views/projects/_project.erb</key>
 		<dict>
@@ -245,6 +247,20 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
+		<key>app/views/ptests/index.html.erb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>33</integer>
+				<key>line</key>
+				<integer>26</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
 		<key>app/views/test_results/_form.html.erb</key>
 		<dict>
 			<key>caret</key>
@@ -258,20 +274,6 @@
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>23</integer>
-		</dict>
-		<key>app/views/test_results/_test_result_table.html.erb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>14</integer>
-				<key>line</key>
-				<integer>17</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
 		</dict>
 		<key>app/views/test_results/send_email.html.erb</key>
 		<dict>
@@ -345,34 +347,6 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>app/views/users/_fields.html.erb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>8</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>app/views/users/new.html.erb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>9</integer>
-				<key>line</key>
-				<integer>10</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
 		<key>config/database.yml</key>
 		<dict>
 			<key>caret</key>
@@ -406,9 +380,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>9</integer>
+				<integer>14</integer>
 				<key>line</key>
-				<integer>9</integer>
+				<integer>4</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -448,13 +422,14 @@
 	</dict>
 	<key>openDocuments</key>
 	<array>
+		<string>app/views/ptests/index.html.erb</string>
+		<string>Gemfile</string>
 		<string>app/controllers/performance_tests_controller.rb</string>
-		<string>app/views/performance_tests/show.html.erb</string>
-		<string>app/views/performance_test_results/index.html.erb</string>
+		<string>app/models/performance_test_result.rb</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{401, 91}, {1279, 937}}</string>
+	<string>{{3284, -499}, {1279, 937}}</string>
 </dict>
 </plist>

@@ -1,0 +1,17 @@
+<%= simple_form_for(@ptest_result) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.association :ptest %>
+    <%= f.input :environment, :collection => ["Dev", "Staging", "Production"], :as => :radio %>
+    <%= f.association :device %>
+    <%= f.association :operating_system %>
+    <%= f.association :connection %>
+    <%= f.association :browser %>
+    <%= f.input :values %>
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

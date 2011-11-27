@@ -22,7 +22,8 @@ class PerformanceTestsController < ApplicationController
   # GET /performance_tests/1.json
   def show
     @performance_test = PerformanceTest.find(params[:id])
-    @performance_test_results = @performance_test.performance_test_results
+    # @performance_test_results = @performance_test.performance_test_results
+    @performance_test_results = PerformanceTestResult.show_query(params[:id])
    
     respond_to do |format|
       format.html # show.html.erb
@@ -34,7 +35,6 @@ class PerformanceTestsController < ApplicationController
     @performance_test = PerformanceTest.find(params[:id])
     # @performance_test_results = @performance_test.performance_test_results
     @performance_test_results = PerformanceTestResult.show_levels_query(params[:id])
-    debugger
     @measure1_results = levels( @performance_test, @performance_test_results, 1 )
     @measure2_results = levels( @performance_test, @performance_test_results, 2 ) unless @performance_test.measure2name.blank?
     @measure3_results = levels( @performance_test, @performance_test_results, 3 ) unless @performance_test.measure3name.blank?

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @ptest.name %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%= @ptest.project_id %>
+</p>
+
+<p>
+  <b>Metric:</b>
+  <%= @ptest.metric_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_ptest_path(@ptest) %> |
+<%= link_to 'Back', ptests_path %>

@@ -13,6 +13,7 @@ gem 'will_paginate', '3.0.pre2'
 gem 'simple_form'
 gem 'ruby-debug'
 gem 'jquery-rails'
+gem 'json'
 
 group :development do
 	gem 'rspec-rails', '2.6.1'

@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Ptest:</b>
+  <%= @ptest_result.ptest_id %>
+</p>
+
+<p>
+  <b>Environment:</b>
+  <%= @ptest_result.environment %>
+</p>
+
+<p>
+  <b>Device:</b>
+  <%= @ptest_result.device_id %>
+</p>
+
+<p>
+  <b>Operating system:</b>
+  <%= @ptest_result.operating_system_id %>
+</p>
+
+<p>
+  <b>Connection:</b>
+  <%= @ptest_result.connection_id %>
+</p>
+
+<p>
+  <b>Browser:</b>
+  <%= @ptest_result.browser_id %>
+</p>
+
+<p>
+  <b>Values:</b>
+  <%= @ptest_result.values %>
+</p>
+
+
+<%= link_to 'Edit', edit_ptest_result_path(@ptest_result) %> |
+<%= link_to 'Back', ptest_results_path %>

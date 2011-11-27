@@ -1,0 +1,35 @@
+<h1>Listing ptest_results</h1>
+
+<table>
+  <tr>
+    <th>Ptest</th>
+    <th>Environment</th>
+    <th>Device</th>
+    <th>Operating system</th>
+    <th>Connection</th>
+    <th>Browser</th>
+    <th>Values</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @ptest_results.each do |ptest_result| %>
+  <tr>
+    <td><%= ptest_result.ptest_id %></td>
+    <td><%= ptest_result.environment %></td>
+    <td><%= ptest_result.device_id %></td>
+    <td><%= ptest_result.operating_system_id %></td>
+    <td><%= ptest_result.connection_id %></td>
+    <td><%= ptest_result.browser_id %></td>
+    <td><%= ptest_result.values %></td>
+    <td><%= link_to 'Show', ptest_result %></td>
+    <td><%= link_to 'Edit', edit_ptest_result_path(ptest_result) %></td>
+    <td><%= link_to 'Destroy', ptest_result, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ptest result', new_ptest_result_path %>

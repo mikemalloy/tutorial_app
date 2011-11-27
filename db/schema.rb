@@ -10,7 +10,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111014173022) do
+ActiveRecord::Schema.define(:version => 20111117234942) do
+
+  create_table "browsers", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "connections", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "devices", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "email_list_items", :force => true do |t|
     t.string   "name"
@@ -27,6 +45,12 @@ ActiveRecord::Schema.define(:version => 20111014173022) do
     t.integer  "project_id"
   end
 
+  create_table "metrics", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "microposts", :force => true do |t|
     t.string   "content"
     t.integer  "user_id"
@@ -36,6 +60,12 @@ ActiveRecord::Schema.define(:version => 20111014173022) do
 
   add_index "microposts", ["created_at"], :name => "index_microposts_on_created_at"
   add_index "microposts", ["user_id"], :name => "index_microposts_on_user_id"
+
+  create_table "operating_systems", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "performance_test_results", :force => true do |t|
     t.integer  "performance_test_id"
@@ -94,6 +124,26 @@ ActiveRecord::Schema.define(:version => 20111014173022) do
   create_table "projects", :force => true do |t|
     t.string   "name"
     t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ptest_results", :force => true do |t|
+    t.integer  "ptest_id"
+    t.string   "environment"
+    t.integer  "device_id"
+    t.integer  "operating_system_id"
+    t.integer  "connection_id"
+    t.integer  "browser_id"
+    t.text     "values"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ptests", :force => true do |t|
+    t.string   "name"
+    t.integer  "project_id"
+    t.integer  "metric_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

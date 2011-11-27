@@ -1,0 +1,27 @@
+<h1>Performance Tests (new zunit format)</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Project</th>
+    <th>Metric</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @ptests.each do |ptest| %>
+  <tr>
+    <td><%= ptest.name %></td>
+    <td><%= ptest.project.name %></td>
+    <td><%= ptest.metric.name %></td>
+	<td><%= button_to 'Add Result', add_test_result_ptest_path(ptest), :method=> :put %>
+    <td><%= link_to 'Show', ptest %></td>
+    <td><%= link_to 'Edit', edit_ptest_path(ptest) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Performance Test', new_ptest_path %>

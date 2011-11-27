@@ -1,3 +1,68 @@
+<script type="text/javascript"> 
+
+var chart1, chart2, chart3, chart4, chart5;
+
+<% { "1" => 1, "2" => 2, "3" => 3, "4" => 4, "5" => 5 }.each do |name, index| %>
+
+jQuery(document).ready(function() {
+	chart<%= name %> = new Highcharts.Chart({
+		chart: {
+			renderTo: 'measure<%= name %>graph',
+			defaultSeriesType: 'line'
+		},
+		title: {
+			text: 'Historical Values',
+			x: -20 //center
+		},
+		xAxis: {
+			categories: <%= date_values(@performance_test_results) %>,
+			labels: { rotation: -45, align: 'right'}
+		},
+		yAxis: {
+			title: {
+				text: 'Time (seconds)'
+			},
+			plotLines: [{
+				value: 0,
+				width: 1,
+				color: '#808080'
+			}]
+		},
+		tooltip: {
+			formatter: function() {
+	                return '<b>'+ this.series.name +'</b><br/>'+
+					this.x +': '+ this.y +' sec';
+			}
+		},
+		legend: {
+			backgroundColor: '#FFFFFF',
+			reversed: true
+		},
+		series: [{
+			name: 'Max',
+			data: <%= max_values(@performance_test_results, index ) %>
+		}, {
+			name: 'Average',
+			data: <%= avg_values(@performance_test_results, index ) %>
+		} , {
+			name: 'Min',
+			data: <%= min_values(@performance_test_results, index ) %>
+		}
+		]
+	});
+	
+	
+});
+
+<% end %>
+
+
+</script>
+
+
+
+
+
 <p>
   <b>Performance Test Name:</b>
   <%= @performance_test.name %>
@@ -9,40 +74,6 @@
 </p>
 
 <div id="measure1graph" style="width:600px;height:300px;"></div> 
-<script type="text/javascript"> 
-
-<% { "1" => 1, "2" => 2, "3" => 3, "4" => 4, "5" => 5 }.each do |name, index| %>
-$(function () {
-   	var d1 = <%= max_values(@performance_test_results, index ) %>;
-	var d2 = <%= avg_values(@performance_test_results, index ) %>;
-	var d3 = <%= min_values(@performance_test_results, index ) %>;
-
-	$.plot($("#measure<%= name %>graph"), [ 
-		{ label: "Max", data: d1},
-		{ label: "Avg", data:d2},
-		{ label: "Min", data:d3} 
-		], {
-		  series: {
-			lines: { show: true },
-			points: { show: true }
-		},
-		  xaxis: {
-			ticks: <%= tick_values(@performance_test_results) %>
-	      },
-	      legend: {
-		    position: "nw",
-		    margin: 0,
-		    noColumns: 6
-	      }	
-		}
-	);
-});
-
-<% end %>
-
-
-</script> 
-
 
 <table class="bvt_app_small_table">
  	<thead>
@@ -70,7 +101,7 @@ $(function () {
 </table>
 
 <% unless @performance_test.measure2name == nil or @performance_test.measure2name.strip == "" %>
-<p> </p>
+<p>&nbsp;</p>
 <p>
   <b>Measure 2:</b>
   <%= @performance_test.measure2name %>
@@ -105,7 +136,7 @@ $(function () {
 <% end %>
 
 <% unless @performance_test.measure3name == nil or @performance_test.measure3name.strip == "" %>
-<p> </p>
+<p>&nbsp;</p>
 <p>
   <b>Measure 3:</b>
   <%= @performance_test.measure3name %>
@@ -140,12 +171,13 @@ $(function () {
 <% end %>
 
 <% unless @performance_test.measure4name == nil or @performance_test.measure4name.strip == "" %>
-<div id="measure4graph" style="width:600px;height:300px;"></div> 
-<p> </p>
+
+<p>&nbsp;</p>
 <p>
   <b>Measure 4:</b>
   <%= @performance_test.measure4name %>
 </p>
+<div id="measure4graph" style="width:600px;height:300px;"></div> 
 <table class="bvt_app_small_table">
  	<thead>
   <tr class="yellow">

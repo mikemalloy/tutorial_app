@@ -3,21 +3,17 @@ module PerformanceTestsHelper
     output = "["
     i = 0
     performance_test_results.each do |ptr|
+      output += "," unless i == 0 
       if measure == 1 
-        output += "," unless i == 0 or ptr.measure1avg == nil
-        output += "[#{i},#{ptr.measure1avg}]" if ptr.measure1avg != nil
+        output +=  ptr.measure1avg.blank? ? "null" : ptr.measure1avg.to_s
       elsif measure == 2
-        output += "," unless i == 0 or ptr.measure2avg == nil
-        output += "[#{i},#{ptr.measure2avg}]" if ptr.measure2avg != nil
+        output +=  ptr.measure2avg.blank? ? "null" : ptr.measure2avg.to_s
       elsif measure == 3
-        output += "," unless i == 0 or ptr.measure3avg == nil
-        output += "[#{i},#{ptr.measure3avg}]" if ptr.measure3avg != nil
+        output +=  ptr.measure3avg.blank? ? "null" : ptr.measure3avg.to_s
       elsif measure == 4
-        output += "," unless i == 0 or ptr.measure4avg == nil
-        output += "[#{i},#{ptr.measure4avg}]" if ptr.measure4avg != nil
+        output +=  ptr.measure4avg.blank? ? "null" : ptr.measure4avg.to_s
       elsif measure == 5
-        output += "," unless i == 0 or ptr.measure5avg == nil
-        output += "[#{i},#{ptr.measure5avg}]" if ptr.measure5avg != nil
+        output +=  ptr.measure5avg.blank? ? "null" : ptr.measure5avg.to_s
       end
       i += 1
     end
@@ -29,21 +25,17 @@ module PerformanceTestsHelper
     output = "["
     i = 0
     performance_test_results.each do |ptr|
+      output += "," unless i == 0 
       if measure == 1
-        output += "," unless i == 0 or ptr.measure1max == nil
-        output += "[#{i},#{ptr.measure1max}]" if ptr.measure1max != nil
+        output += ptr.measure1max.blank? ? "null" : ptr.measure1max.to_s 
       elsif measure == 2
-        output += "," unless i == 0 or ptr.measure2max == nil
-        output += "[#{i},#{ptr.measure2max}]" if ptr.measure2max != nil
+        output += ptr.measure2max.blank? ? "null" : ptr.measure2max.to_s 
       elsif measure == 3
-        output += "," unless i == 0 or ptr.measure3max == nil
-        output += "[#{i},#{ptr.measure3max}]" if ptr.measure3max != nil
+        output += ptr.measure3max.blank? ? "null" : ptr.measure3max.to_s 
       elsif measure == 4
-        output += "," unless i == 0 or ptr.measure4max == nil
-        output += "[#{i},#{ptr.measure4max}]" if ptr.measure4max != nil
+        output += ptr.measure4max.blank? ? "null" : ptr.measure4max.to_s 
       elsif measure == 5
-        output += "," unless i == 0 or ptr.measure5max == nil
-        output += "[#{i},#{ptr.measure5max}]" if ptr.measure5max != nil
+        output += ptr.measure5max.blank? ? "null" : ptr.measure5max.to_s 
       end
       i += 1
     end
@@ -55,21 +47,17 @@ module PerformanceTestsHelper
     output = "["
     i = 0
     performance_test_results.each do |ptr|
+      output += "," unless i == 0 
       if measure == 1
-        output += "," unless i == 0 or ptr.measure1min == nil
-        output += "[#{i},#{ptr.measure1min}]" if ptr.measure1min != nil
+        output += ptr.measure1min.blank? ? "null" : ptr.measure1min.to_s 
       elsif measure == 2
-        output += "," unless i == 0 or ptr.measure2min == nil
-        output += "[#{i},#{ptr.measure2min}]" if ptr.measure2min != nil
+        output += ptr.measure2min.blank? ? "null" : ptr.measure2min.to_s 
       elsif measure == 3
-        output += "," unless i == 0 or ptr.measure3min == nil
-        output += "[#{i},#{ptr.measure3min}]" if ptr.measure3min != nil
+        output += ptr.measure3min.blank? ? "null" : ptr.measure3min.to_s
       elsif measure == 4
-        output += "," unless i == 0 or ptr.measure4min == nil
-        output += "[#{i},#{ptr.measure4min}]" if ptr.measure4min != nil
+        output += ptr.measure4min.blank? ? "null" : ptr.measure4min.to_s
       elsif measure == 5
-        output += "," unless i == 0 or ptr.measure5min == nil
-        output += "[#{i},#{ptr.measure5min}]" if ptr.measure5min != nil
+        output += ptr.measure5min.blank? ? "null" : ptr.measure5min.to_s
       end
       i += 1
     end
@@ -108,7 +96,9 @@ module PerformanceTestsHelper
       date_run = ptr.date_run.to_datetime
       formatted_date_string = date_run.strftime( "%m/%d/%Y")
       output += "," unless i == 0
-      output += "\'" + formatted_date_string + "(#{ptr.build})" + "\'"
+      output += "\'" + formatted_date_string 
+      output += "(#{ptr.build})" unless ptr.build.blank? or ptr.build.length > 6
+      output += "\'"
       i+=1
     end
     output += ']'

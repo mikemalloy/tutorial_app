@@ -1,4 +1,23 @@
 TutorialApp::Application.routes.draw do
+  resources :ptest_results
+
+  resources :ptests
+  resources :ptests do
+    member do
+      put 'add_test_result'
+    end
+  end
+
+  resources :browsers
+
+  resources :connections
+
+  resources :operating_systems
+
+  resources :devices
+
+  resources :metrics
+
   resources :performance_test_results
 
   resources :performance_tests
